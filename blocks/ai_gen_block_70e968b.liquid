@@ -18,6 +18,18 @@
     background-color: {{ block.settings.background_color }};
   }
 
+  .ai-press-marquee__sr-only-{{ ai_gen_id }} {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   .ai-press-marquee__container-{{ ai_gen_id }} {
     width: 100%;
     max-width: 100%;
@@ -33,7 +45,6 @@
   .ai-press-marquee__track-{{ ai_gen_id }} {
     display: flex;
     width: max-content;
-    gap: {{ block.settings.logo_spacing }}px;
     animation: ai-press-marquee-scroll-{{ ai_gen_id }} {{ block.settings.scroll_speed }}s linear infinite;
   }
 
@@ -47,6 +58,7 @@
     align-items: center;
     justify-content: center;
     height: {{ block.settings.logo_height }}px;
+    margin-right: {{ block.settings.logo_spacing }}px;
   }
 
   .ai-press-marquee__logo-{{ ai_gen_id }} {
@@ -112,7 +124,18 @@
       <h2 class="ai-press-marquee__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
     {% endif %}
 
-    <div class="ai-press-marquee__track-{{ ai_gen_id }}">
+    {%- comment -%} Screen reader accessible list of logos {%- endcomment -%}
+    <ul class="ai-press-marquee__sr-only-{{ ai_gen_id }}">
+      {% for i in (1..12) %}
+        {% assign logo_key = 'logo_' | append: i %}
+        {% assign logo = block.settings[logo_key] %}
+        {% if logo != blank %}
+          <li>{{ logo.alt | default: 'Press logo' | escape }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <div class="ai-press-marquee__track-{{ ai_gen_id }}" aria-hidden="true">
       {% liquid
         assign logos_array = ''
         for i in (1..12)
@@ -127,7 +150,8 @@
       %}
 
       {% if logos_count > 0 %}
-        {% for iteration in (1..2) %}
+        {%- comment -%} Duplicate logos enough times to ensure seamless scrolling {%- endcomment -%}
+        {% for iteration in (1..4) %}
           {% for i in (1..12) %}
             {% assign logo_key = 'logo_' | append: i %}
             {% assign logo = block.settings[logo_key] %}
@@ -135,7 +159,7 @@
               <div class="ai-press-marquee__item-{{ ai_gen_id }}">
                 <img
                   src="{{ logo | image_url: width: 400 }}"
-                  alt="{{ logo.alt | escape }}"
+                  alt=""
                   class="ai-press-marquee__logo-{{ ai_gen_id }}"
                   loading="lazy"
                   width="{{ logo.width }}"
@@ -146,19 +170,15 @@
           {% endfor %}
         {% endfor %}
       {% else %}
-        {% for i in (1..8) %}
-          <div class="ai-press-marquee__item-{{ ai_gen_id }}">
-            <div class="ai-press-marquee__placeholder-{{ ai_gen_id }}">
-              {{ 'image' | placeholder_svg_tag }}
+        {%- comment -%} Show placeholder logos if none uploaded {%- endcomment -%}
+        {% for iteration in (1..4) %}
+          {% for i in (1..6) %}
+            <div class="ai-press-marquee__item-{{ ai_gen_id }}">
+              <div class="ai-press-marquee__placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
             </div>
-          </div>
-        {% endfor %}
-        {% for i in (1..8) %}
-          <div class="ai-press-marquee__item-{{ ai_gen_id }}">
-            <div class="ai-press-marquee__placeholder-{{ ai_gen_id }}">
-              {{ 'image' | placeholder_svg_tag }}
-            </div>
-          </div>
+          {% endfor %}
         {% endfor %}
       {% endif %}
     </div>
@@ -174,14 +194,42 @@
 
       connectedCallback() {
         this.track = this.querySelector('.ai-press-marquee__track-{{ ai_gen_id }}');
-        this.adjustAnimationSpeed();
+        this.init();
+      }
+
+      init() {
+        if (!this.track) return;
+        
+        // Wait for images to load before calculating
+        const images = this.track.querySelectorAll('img');
+        if (images.length > 0) {
+          Promise.all(
+            Array.from(images).map(img => {
+              if (img.complete) return Promise.resolve();
+              return new Promise(resolve => {
+                img.addEventListener('load', resolve);
+                img.addEventListener('error', resolve);
+              });
+            })
+          ).then(() => {
+            this.adjustAnimationSpeed();
+          });
+        } else {
+          this.adjustAnimationSpeed();
+        }
       }
 
       adjustAnimationSpeed() {
         if (!this.track) return;
-        const trackWidth = this.track.scrollWidth / 2;
+        
+        // Get the width of half the track (since we animate to -50%)
+        // This works because we duplicate logos 4 times, so halfway = 2 complete sets
+        const halfTrackWidth = this.track.scrollWidth / 2;
         const speed = {{ block.settings.scroll_speed }};
-        const duration = (trackWidth / 100) * (speed / 10);
+        
+        // Calculate duration based on track width and speed setting
+        // Higher speed value = slower animation (more seconds)
+        const duration = (halfTrackWidth / 100) * (speed / 10);
         this.track.style.animationDuration = duration + 's';
       }
     }
