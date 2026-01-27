@@ -210,7 +210,7 @@
         "image_1": "shopify://shop_images/hero_a.jpg",
         "media_type_2": "image",
         "image_2": "shopify://shop_images/hero_b.jpg",
-        "stack_media_on_mobile": false,
+        "stack_media_on_mobile": true,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
