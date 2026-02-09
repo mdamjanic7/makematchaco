@@ -28,8 +28,6 @@
   .ai-press-marquee__track-{{ ai_gen_id }} {
     display: flex;
     align-items: center;
-    gap: {{ block.settings.logo_spacing }}px;
-    animation: ai-press-marquee-scroll-{{ ai_gen_id }} {{ block.settings.scroll_speed }}s linear infinite;
     will-change: transform;
   }
 
@@ -37,6 +35,8 @@
     display: flex;
     align-items: center;
     gap: {{ block.settings.logo_spacing }}px;
+    flex-shrink: 0;
+    padding-right: {{ block.settings.logo_spacing }}px;
   }
 
   .ai-press-marquee__logo-{{ ai_gen_id }} {
@@ -78,18 +78,9 @@
     opacity: 0.3;
   }
 
-  @keyframes ai-press-marquee-scroll-{{ ai_gen_id }} {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .ai-press-marquee__track-{{ ai_gen_id }} {
-      animation: none;
+      animation: none !important;
     }
   }
 
@@ -122,40 +113,12 @@
             assign logo_key = 'logo_' | append: i
             assign logo = block.settings[logo_key]
           %}
-          
-          {% if logo != blank %}
-            <div class="ai-press-marquee__logo-{{ ai_gen_id }}">
-              <img
-                src="{{ logo | image_url: width: 400 }}"
-                alt="{{ logo.alt | escape }}"
-                loading="lazy"
-                width="{{ logo.width }}"
-                height="{{ logo.height }}"
-              >
-            </div>
-          {% else %}
-            <div class="ai-press-marquee__logo-{{ ai_gen_id }}">
-              <div class="ai-press-marquee__placeholder-{{ ai_gen_id }}">
-                {{ 'image' | placeholder_svg_tag }}
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
 
-      <div class="ai-press-marquee__wrapper-{{ ai_gen_id }}" aria-hidden="true">
-        {% for i in (1..8) %}
-          {% liquid
-            assign logo_key = 'logo_' | append: i
-            assign logo = block.settings[logo_key]
-          %}
-          
           {% if logo != blank %}
             <div class="ai-press-marquee__logo-{{ ai_gen_id }}">
               <img
                 src="{{ logo | image_url: width: 400 }}"
                 alt="{{ logo.alt | escape }}"
-                loading="lazy"
                 width="{{ logo.width }}"
                 height="{{ logo.height }}"
               >
@@ -175,21 +138,97 @@
 
 <script>
   (function() {
+    var WRAPPER_CLASS = '.ai-press-marquee__wrapper-{{ ai_gen_id }}';
+    var TRACK_CLASS = '.ai-press-marquee__track-{{ ai_gen_id }}';
+    var KEYFRAME_ID = 'ai-press-marquee-scroll-{{ ai_gen_id }}';
+    var BASE_DISTANCE = 1000;
+    var BASE_DURATION = {{ block.settings.scroll_speed }};
+    var FALLBACK_TIMEOUT = 5000;
+
     class PressMarquee{{ ai_gen_id }} extends HTMLElement {
       constructor() {
         super();
+        this.started = false;
       }
 
       connectedCallback() {
-        this.track = this.querySelector('.ai-press-marquee__track-{{ ai_gen_id }}');
-        this.setupAccessibility();
+        this.track = this.querySelector(TRACK_CLASS);
+        if (!this.track) return;
+
+        this.track.setAttribute('role', 'marquee');
+        this.track.setAttribute('aria-live', 'off');
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        this.wrapper = this.track.querySelector(WRAPPER_CLASS);
+        if (!this.wrapper) return;
+
+        this.waitForImages();
       }
 
-      setupAccessibility() {
-        if (this.track) {
-          this.track.setAttribute('role', 'marquee');
-          this.track.setAttribute('aria-live', 'off');
+      waitForImages() {
+        var images = this.wrapper.querySelectorAll('img');
+        var pending = [];
+        var self = this;
+
+        for (var i = 0; i < images.length; i++) {
+          if (!images[i].complete) pending.push(images[i]);
         }
+
+        if (pending.length === 0) {
+          requestAnimationFrame(function() { self.start(); });
+          return;
+        }
+
+        var settled = 0;
+
+        function onSettle() {
+          settled++;
+          if (settled >= pending.length) {
+            requestAnimationFrame(function() { self.start(); });
+          }
+        }
+
+        for (var j = 0; j < pending.length; j++) {
+          pending[j].addEventListener('load', onSettle);
+          pending[j].addEventListener('error', onSettle);
+        }
+
+        setTimeout(function() {
+          if (!self.started) {
+            requestAnimationFrame(function() { self.start(); });
+          }
+        }, FALLBACK_TIMEOUT);
+      }
+
+      start() {
+        if (this.started) return;
+        this.started = true;
+
+        var wrapperWidth = this.wrapper.offsetWidth;
+        if (wrapperWidth <= 0) return;
+
+        var containerWidth = this.track.parentElement.offsetWidth;
+        var copiesNeeded = Math.ceil(containerWidth / wrapperWidth) + 1;
+
+        for (var i = 0; i < copiesNeeded; i++) {
+          var clone = this.wrapper.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          this.track.appendChild(clone);
+        }
+
+        var pxPerSecond = BASE_DISTANCE / BASE_DURATION;
+        var duration = wrapperWidth / pxPerSecond;
+
+        var style = document.createElement('style');
+        style.textContent =
+          '@keyframes ' + KEYFRAME_ID + ' {' +
+          ' from { transform: translateX(0); }' +
+          ' to { transform: translateX(-' + wrapperWidth + 'px); }' +
+          '}';
+        document.head.appendChild(style);
+
+        this.track.style.animation = KEYFRAME_ID + ' ' + duration + 's linear infinite';
       }
     }
 
