@@ -1,0 +1,148 @@
+---
+description: Make Matcha brand identity, positioning, audience, tone of voice, visual direction, and design philosophy. Reference this when writing copy, designing layouts, choosing imagery, or making any brand-facing decisions.
+globs:
+alwaysApply: false
+---
+
+# Make Matcha — Brand Reference Guide
+
+> This document is a comprehensive reference for Make Matcha's brand identity, positioning, audience, and visual direction. It's designed to be ingested by LLMs when making updates to the website so they have full context on what the brand is and isn't.
+
+---
+
+## Brand Overview
+
+**Make Matcha** is a premium matcha company selling directly to consumers in the US and Canada. The brand sits in the top tier of matcha quality — one of only three companies importing this grade of matcha into North America. The quality delta between Make Matcha and what's typically available on the market is significant, and that's reflected in the price point.
+
+The name "Make Matcha" is intentional: it's about handing the experience back to the customer. However you make it, make it yours. It's a creative, personal act — not a prescribed ceremony.
+
+---
+
+## Target Audience
+
+### Who it's for
+- **Mature audience** with a household income of roughly $150,000–$250,000/year
+- People in the **creative and design industries** — they have taste and know what good looks like
+- **Health and wellness-oriented** people who care about what they put in their bodies
+- People who are **not swayed by trends** — they're confident in their own preferences
+- They value **timeless, well-made things** across all areas of life, not just food
+- **Matcha obsessed**: these are people who have been drinking matcha for years, have tried many brands, and prioritize quality and taste above all else
+- People who love the **routine of making matcha at home** — it's part of their daily life
+
+### Who it's NOT for
+- Someone who casually gets matcha lattes at a cafe
+- A young audience that discovers matcha through influencers — this is **not an influencer brand**
+- People who are "matcha curious" or just starting to explore matcha
+- Bargain shoppers — the product is premium and priced accordingly
+
+---
+
+## Brand Positioning
+
+### vs. Competitors
+There are two other companies importing matcha of comparable quality into North America. Both are rooted in **deep Japanese tradition** — their packaging, language, and marketing lean heavily into rituals, tea ceremonies, and cultural heritage.
+
+Make Matcha is **fundamentally different**:
+- **Design-forward**, not tradition-forward
+- Does not appropriate or lean into Japanese ceremony/ritual language
+- Doesn't pretend to be something it isn't — the founders are not Japanese and don't position themselves that way
+- Instead of prescribing *how* to use the product, Make Matcha says: "however you want to make your matcha, that's up to you"
+
+### Brand personality
+- Talks to customers **like adults, like friends** — no pandering, no gimmicks
+- Confident and understated — the product speaks for itself
+- Premium and luxury without being pretentious
+- Creative and open — encourages personal expression
+
+### Words and language to AVOID
+- "Ritual" — this is a deliberate choice; the brand does not use this word
+- "Ceremony" or language evoking traditional Japanese tea ceremony
+- Overly trendy DTC/influencer language
+- Generic wellness buzzwords
+- Anything that feels like cultural appropriation or cosplaying Japanese heritage
+
+### Words and tone to USE
+- Direct, warm, conversational
+- Confident without being exclusive
+- Quality-focused: talk about the actual product, sourcing, and what makes it exceptional
+- "Make it yours" energy — empowering, personal
+
+---
+
+## Product & Health Benefits
+
+### What customers know (and don't)
+An important insight from customer research: even daily matcha drinkers often don't know *why* matcha is good for them. They know it provides a gentler caffeine experience than coffee, and they assume it's healthy — but they can't name specific benefits.
+
+### Key health properties of matcha
+- **L-Theanine** — promotes calm focus, responsible for the smoother energy curve vs coffee
+- **Chlorophyll** — detoxifying, anti-inflammatory
+- **Catechins/EGCG** — powerful antioxidants
+- **Caffeine** — present but absorbed differently due to L-Theanine
+- **Anti-inflammatory properties** — particularly relevant for athletic recovery
+
+### Strategic direction for health content
+- Initially the brand chose not to talk about health benefits, assuming the audience already knew
+- Customer research revealed this was wrong — education is needed
+- Currently a "health benefits" section exists on the homepage as a stopgap
+- Long-term plan: a dedicated page for health/science content with proper SEO value
+- Leaning into **athlete recovery** as a specific angle (partnerships with Wilson at US Open, exploring FIFA Vancouver)
+- The neon green accent color in the brand ties into this sport/performance arm
+
+---
+
+## Visual & Design Direction
+
+### Current state
+The site currently uses a Shopify theme/template. Carla (founder) has historically built websites with front-end developers and has found the template approach limiting. Her background includes building websites at Everlane and other design-forward brands.
+
+### What works
+- **The hero section** — the photography alone communicates "this is not a typical DTC matcha company." It sets the right tone immediately
+- **Product imagery and packaging** — feels high-end and fashion-forward
+- **The ticker/marquee element** — adds energy and movement
+
+### What doesn't work
+- Sections that follow a predictable **"eyebrow text → headline → body copy → image block"** pattern feel too template-like and rudimentary
+- Centered text blocks with image blocks underneath — lacks integration between typography and visuals
+- The layout "loses its luster" in the mid-page sections — everything starts to feel samey
+- Overall impression: the site looks like something from the **early 2010s**, not where web design is today
+
+### What she wants
+- **Typography and imagery integrated together**, not as separate blocks
+- **Interactive elements**: scroll-triggered animations, stacking effects, elements that catch your eye as you move through the page
+- **Non-standard layouts** that break out of the typical grid/template patterns
+- The site should feel more like a **fashion/lifestyle editorial** than a standard e-commerce site
+- Think: the way Seed, AG1, or other elevated DTC brands handle their product pages — interactive cards, animations, considered motion design
+
+### Design inspiration references
+- **Seed** (seed.com) — interactive product cards, stacking animations, elevated design treatment
+- **AG1** (drinkag1.com) — interactive elements, premium feel
+- **Shopify Supply Store** — the socks page with product rotation/3D-like motion
+
+### The core design philosophy
+The website should feel like you've entered a **curated brand world**, not landed on an e-commerce template. Every section should feel intentional, considered, and slightly unexpected. If it looks like a theme, it's not right.
+
+---
+
+## Subscription Strategy
+
+- Currently the subscription page is just a collection/category view — not a proper landing page
+- Goal: build a dedicated subscription page that tells a story and "builds a world" around the subscription experience
+- Should include customization options (monthly vs. every other month)
+- The matcha grades page and subscription page have natural crossover — when choosing a subscription, you're choosing between grades
+- Product cards for grades should be interactive and visually rich (Seed-style card treatments, not standard grid)
+
+---
+
+## Summary for LLMs
+
+When updating this website, keep these principles top of mind:
+
+1. **This is a luxury, design-forward brand.** Every choice should reflect taste, not convention.
+2. **Avoid anything that feels like a template.** If a layout pattern is the "default" — push past it.
+3. **Integrate, don't stack.** Text and imagery should flow together, not alternate in blocks.
+4. **Motion is important.** Subtle, considered animations add life. Think scroll-triggered reveals, stacking effects, parallax — but tasteful, not gimmicky.
+5. **Talk like an adult to an adult.** No marketing-speak, no buzzwords, no cultural appropriation.
+6. **Quality is the story.** Don't oversell. State what makes the product exceptional and let it land.
+7. **The audience already has taste.** Don't explain design choices; just make them good.
+8. **When in doubt, look at fashion/editorial sites for inspiration**, not other DTC matcha brands.
