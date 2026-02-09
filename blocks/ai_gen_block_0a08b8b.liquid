@@ -1,0 +1,594 @@
+{% doc %}
+  @prompt
+    Create a color swatch variant picker that allows merchants to assign different hex colors to each variant option. The code should display color swatches instead of text buttons, allow customization of hex color codes for each variant value, and work with the existing variant picker functionality. Include settings to map variant option names to specific hex color values.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-color-swatch-picker-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+  }
+
+  .ai-color-swatch-picker__container-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ai-color-swatch-picker__option-group-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-color-swatch-picker__label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_font_size }}px;
+    font-weight: 600;
+    color: {{ block.settings.label_color }};
+    margin: 0;
+  }
+
+  .ai-color-swatch-picker__swatches-{{ ai_gen_id }} {
+    display: flex;
+    flex-wrap: wrap;
+    gap: {{ block.settings.swatch_spacing }}px;
+  }
+
+  .ai-color-swatch-picker__swatch-{{ ai_gen_id }} {
+    position: relative;
+    width: {{ block.settings.swatch_size }}px;
+    height: {{ block.settings.swatch_size }}px;
+    border-radius: {{ block.settings.swatch_border_radius }}px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: {{ block.settings.swatch_border_width }}px solid {{ block.settings.swatch_border_color }};
+    overflow: hidden;
+  }
+
+  .ai-color-swatch-picker__swatch-{{ ai_gen_id }}:hover {
+    transform: scale(1.1);
+  }
+
+  .ai-color-swatch-picker__swatch-{{ ai_gen_id }}.selected {
+    box-shadow: 0 0 0 {{ block.settings.selected_ring_width }}px {{ block.settings.selected_ring_color }};
+    transform: scale(1.05);
+  }
+
+  .ai-color-swatch-picker__swatch-{{ ai_gen_id }}.unavailable {
+    opacity: 0.3;
+    cursor: not-allowed;
+    position: relative;
+  }
+
+  .ai-color-swatch-picker__swatch-{{ ai_gen_id }}.unavailable::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    right: -10%;
+    height: 2px;
+    background-color: {{ block.settings.unavailable_line_color }};
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .ai-color-swatch-picker__swatch-input-{{ ai_gen_id }} {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .ai-color-swatch-picker__tooltip-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: {{ block.settings.tooltip_bg_color }};
+    color: {{ block.settings.tooltip_text_color }};
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .ai-color-swatch-picker__swatch-{{ ai_gen_id }}:hover .ai-color-swatch-picker__tooltip-{{ ai_gen_id }} {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-color-swatch-picker__swatch-{{ ai_gen_id }} {
+      width: {{ block.settings.swatch_size | times: 0.9 }}px;
+      height: {{ block.settings.swatch_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<color-swatch-picker-{{ ai_gen_id }}
+  class="ai-color-swatch-picker-{{ ai_gen_id }}"
+  data-product-id="{{ product.id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-color-swatch-picker__container-{{ ai_gen_id }}">
+    {% for option in product.options_with_values %}
+      {% assign option_index = forloop.index0 %}
+      {% assign option_name = option.name | downcase %}
+      
+      <div class="ai-color-swatch-picker__option-group-{{ ai_gen_id }}">
+        <label class="ai-color-swatch-picker__label-{{ ai_gen_id }}">
+          {{ option.name }}
+        </label>
+        
+        <div class="ai-color-swatch-picker__swatches-{{ ai_gen_id }}">
+          {% for value in option.values %}
+            {% assign value_lower = value | downcase %}
+            {% assign color_hex = '' %}
+            
+            {% assign color_1_name_lower = block.settings.color_1_name | downcase %}
+            {% assign color_2_name_lower = block.settings.color_2_name | downcase %}
+            {% assign color_3_name_lower = block.settings.color_3_name | downcase %}
+            {% assign color_4_name_lower = block.settings.color_4_name | downcase %}
+            {% assign color_5_name_lower = block.settings.color_5_name | downcase %}
+            {% assign color_6_name_lower = block.settings.color_6_name | downcase %}
+            {% assign color_7_name_lower = block.settings.color_7_name | downcase %}
+            {% assign color_8_name_lower = block.settings.color_8_name | downcase %}
+            {% assign color_9_name_lower = block.settings.color_9_name | downcase %}
+            {% assign color_10_name_lower = block.settings.color_10_name | downcase %}
+            
+            {% if value_lower == color_1_name_lower %}
+              {% assign color_hex = block.settings.color_1_hex %}
+            {% elsif value_lower == color_2_name_lower %}
+              {% assign color_hex = block.settings.color_2_hex %}
+            {% elsif value_lower == color_3_name_lower %}
+              {% assign color_hex = block.settings.color_3_hex %}
+            {% elsif value_lower == color_4_name_lower %}
+              {% assign color_hex = block.settings.color_4_hex %}
+            {% elsif value_lower == color_5_name_lower %}
+              {% assign color_hex = block.settings.color_5_hex %}
+            {% elsif value_lower == color_6_name_lower %}
+              {% assign color_hex = block.settings.color_6_hex %}
+            {% elsif value_lower == color_7_name_lower %}
+              {% assign color_hex = block.settings.color_7_hex %}
+            {% elsif value_lower == color_8_name_lower %}
+              {% assign color_hex = block.settings.color_8_hex %}
+            {% elsif value_lower == color_9_name_lower %}
+              {% assign color_hex = block.settings.color_9_hex %}
+            {% elsif value_lower == color_10_name_lower %}
+              {% assign color_hex = block.settings.color_10_hex %}
+            {% endif %}
+            
+            {% assign is_available = false %}
+            {% for variant in product.variants %}
+              {% if variant.options[option_index] == value and variant.available %}
+                {% assign is_available = true %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            
+            {% assign is_selected = false %}
+            {% if product.selected_or_first_available_variant.options[option_index] == value %}
+              {% assign is_selected = true %}
+            {% endif %}
+            
+            <label
+              class="ai-color-swatch-picker__swatch-{{ ai_gen_id }} {% if is_selected %}selected{% endif %} {% unless is_available %}unavailable{% endunless %}"
+              data-option-position="{{ option.position }}"
+              data-value="{{ value | escape }}"
+              style="background-color: {{ color_hex }};"
+            >
+              <input
+                type="radio"
+                name="options[{{ option.name | escape }}]"
+                value="{{ value | escape }}"
+                class="ai-color-swatch-picker__swatch-input-{{ ai_gen_id }}"
+                {% if is_selected %}checked{% endif %}
+                {% unless is_available %}disabled{% endunless %}
+              >
+              {% if block.settings.show_tooltip %}
+                <span class="ai-color-swatch-picker__tooltip-{{ ai_gen_id }}">{{ value }}</span>
+              {% endif %}
+            </label>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</color-swatch-picker-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ColorSwatchPicker{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.productId = this.dataset.productId;
+      }
+
+      connectedCallback() {
+        this.swatches = this.querySelectorAll('.ai-color-swatch-picker__swatch-{{ ai_gen_id }}');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.swatches.forEach((swatch) => {
+          swatch.addEventListener('click', (e) => {
+            if (swatch.classList.contains('unavailable')) {
+              e.preventDefault();
+              return;
+            }
+
+            const input = swatch.querySelector('input');
+            const optionPosition = swatch.dataset.optionPosition;
+            const value = swatch.dataset.value;
+
+            this.querySelectorAll(`[data-option-position="${optionPosition}"]`).forEach((s) => {
+              s.classList.remove('selected');
+            });
+
+            swatch.classList.add('selected');
+
+            this.updateVariant();
+          });
+        });
+      }
+
+      updateVariant() {
+        const selectedOptions = [];
+        const optionGroups = this.querySelectorAll('.ai-color-swatch-picker__option-group-{{ ai_gen_id }}');
+
+        optionGroups.forEach((group) => {
+          const selectedSwatch = group.querySelector('.ai-color-swatch-picker__swatch-{{ ai_gen_id }}.selected');
+          if (selectedSwatch) {
+            selectedOptions.push(selectedSwatch.dataset.value);
+          }
+        });
+
+        const productForm = document.querySelector(`form[data-product-id="${this.productId}"]`) || 
+                           document.querySelector('form[action*="/cart/add"]');
+
+        if (productForm) {
+          const variantIdInput = productForm.querySelector('[name="id"]');
+          const variant = this.getVariantFromOptions(selectedOptions);
+
+          if (variant && variantIdInput) {
+            variantIdInput.value = variant.id;
+
+            const event = new CustomEvent('variant:change', {
+              detail: { variant: variant },
+              bubbles: true
+            });
+            productForm.dispatchEvent(event);
+          }
+
+          this.updateAvailability(selectedOptions);
+        }
+      }
+
+      getVariantFromOptions(selectedOptions) {
+        const productData = document.querySelector(`script[data-product-json][data-product-id="${this.productId}"]`);
+        
+        if (!productData) {
+          return null;
+        }
+
+        const product = JSON.parse(productData.textContent);
+
+        return product.variants.find((variant) => {
+          return selectedOptions.every((option, index) => {
+            return variant.options[index] === option;
+          });
+        });
+      }
+
+      updateAvailability(selectedOptions) {
+        const productData = document.querySelector(`script[data-product-json][data-product-id="${this.productId}"]`);
+        
+        if (!productData) {
+          return;
+        }
+
+        const product = JSON.parse(productData.textContent);
+
+        this.swatches.forEach((swatch) => {
+          const position = parseInt(swatch.dataset.optionPosition) - 1;
+          const value = swatch.dataset.value;
+
+          const testOptions = [...selectedOptions];
+          testOptions[position] = value;
+
+          const hasAvailableVariant = product.variants.some((variant) => {
+            return testOptions.every((option, index) => {
+              return variant.options[index] === option;
+            }) && variant.available;
+          });
+
+          if (hasAvailableVariant) {
+            swatch.classList.remove('unavailable');
+            swatch.querySelector('input').disabled = false;
+          } else {
+            swatch.classList.add('unavailable');
+            swatch.querySelector('input').disabled = true;
+          }
+        });
+      }
+    }
+
+    customElements.define('color-swatch-picker-{{ ai_gen_id }}', ColorSwatchPicker{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Color swatch picker",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color mappings"
+    },
+    {
+      "type": "paragraph",
+      "content": "Map variant option values to hex colors. Enter the exact variant option name and its corresponding hex color code."
+    },
+    {
+      "type": "text",
+      "id": "color_1_name",
+      "label": "Color 1 name",
+      "default": "Black"
+    },
+    {
+      "type": "color",
+      "id": "color_1_hex",
+      "label": "Color 1 hex",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "color_2_name",
+      "label": "Color 2 name",
+      "default": "White"
+    },
+    {
+      "type": "color",
+      "id": "color_2_hex",
+      "label": "Color 2 hex",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "color_3_name",
+      "label": "Color 3 name",
+      "default": "Red"
+    },
+    {
+      "type": "color",
+      "id": "color_3_hex",
+      "label": "Color 3 hex",
+      "default": "#FF0000"
+    },
+    {
+      "type": "text",
+      "id": "color_4_name",
+      "label": "Color 4 name",
+      "default": "Blue"
+    },
+    {
+      "type": "color",
+      "id": "color_4_hex",
+      "label": "Color 4 hex",
+      "default": "#0000FF"
+    },
+    {
+      "type": "text",
+      "id": "color_5_name",
+      "label": "Color 5 name"
+    },
+    {
+      "type": "color",
+      "id": "color_5_hex",
+      "label": "Color 5 hex",
+      "default": "#808080"
+    },
+    {
+      "type": "text",
+      "id": "color_6_name",
+      "label": "Color 6 name"
+    },
+    {
+      "type": "color",
+      "id": "color_6_hex",
+      "label": "Color 6 hex",
+      "default": "#00FF00"
+    },
+    {
+      "type": "text",
+      "id": "color_7_name",
+      "label": "Color 7 name"
+    },
+    {
+      "type": "color",
+      "id": "color_7_hex",
+      "label": "Color 7 hex",
+      "default": "#FFFF00"
+    },
+    {
+      "type": "text",
+      "id": "color_8_name",
+      "label": "Color 8 name"
+    },
+    {
+      "type": "color",
+      "id": "color_8_hex",
+      "label": "Color 8 hex",
+      "default": "#FFA500"
+    },
+    {
+      "type": "text",
+      "id": "color_9_name",
+      "label": "Color 9 name"
+    },
+    {
+      "type": "color",
+      "id": "color_9_hex",
+      "label": "Color 9 hex",
+      "default": "#800080"
+    },
+    {
+      "type": "text",
+      "id": "color_10_name",
+      "label": "Color 10 name"
+    },
+    {
+      "type": "color",
+      "id": "color_10_hex",
+      "label": "Color 10 hex",
+      "default": "#FFC0CB"
+    },
+    {
+      "type": "header",
+      "content": "Swatch style"
+    },
+    {
+      "type": "range",
+      "id": "swatch_size",
+      "label": "Swatch size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "swatch_spacing",
+      "label": "Spacing",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "swatch_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "swatch_border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "swatch_border_color",
+      "label": "Border color",
+      "default": "#E6E6E6"
+    },
+    {
+      "type": "header",
+      "content": "Selected state"
+    },
+    {
+      "type": "range",
+      "id": "selected_ring_width",
+      "label": "Ring width",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "selected_ring_color",
+      "label": "Ring color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Unavailable state"
+    },
+    {
+      "type": "color",
+      "id": "unavailable_line_color",
+      "label": "Line color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Label"
+    },
+    {
+      "type": "range",
+      "id": "label_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Tooltip"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tooltip",
+      "label": "Show tooltip on hover",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "tooltip_bg_color",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "tooltip_text_color",
+      "label": "Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Color swatch picker"
+    }
+  ]
+}
+{% endschema %}

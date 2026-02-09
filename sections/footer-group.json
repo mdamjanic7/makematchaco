@@ -9,24 +9,24 @@
  */
 {
   "type": "footer",
-  "name": "t:names.footer",
+  "name": "Footer",
   "sections": {
-    "footer": {
+    "footer_WnX4aJ": {
       "type": "footer",
       "blocks": {
-        "group_wErUQf": {
+        "group_EJMKU9": {
           "type": "group",
-          "name": "Join our email list",
+          "name": "Menu links",
           "settings": {
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
+            "vertical_alignment": "flex-start",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 6,
-            "width": "fill",
+            "gap": 12,
+            "width": "custom",
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
@@ -54,13 +54,35 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "menu_na7UMb": {
+            "menu_k94JXn": {
+              "type": "menu",
+              "name": "t:names.menu",
+              "disabled": true,
+              "settings": {
+                "menu": "footer",
+                "heading": "More MAKE",
+                "menu_spacing": 4,
+                "show_as_accordion": false,
+                "accordion_icon": "caret",
+                "accordion_dividers": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "heading_preset": "h5",
+                "link_preset": "paragraph",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "menu_n8zrAw": {
               "type": "menu",
               "name": "t:names.menu",
               "settings": {
                 "menu": "social-links",
                 "heading": "Connect With Us",
-                "menu_spacing": 12,
+                "menu_spacing": 1,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
                 "accordion_dividers": false,
@@ -77,179 +99,79 @@
             }
           },
           "block_order": [
-            "menu_na7UMb"
+            "menu_k94JXn",
+            "menu_n8zrAw"
           ]
         },
-        "email-signup_HafH7P": {
+        "email_signup_t3aAfi": {
           "type": "email-signup",
-          "name": "Email Signup",
+          "name": "t:names.email_signup",
           "settings": {
-            "width": "fill",
+            "width": "custom",
             "custom_width": 100,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "heading": "Sign up for matcha content, special offers, and events.",
-            "heading_preset": "h5",
-            "border_style": "all",
+            "heading_preset": "paragraph",
+            "border_style": "underline",
             "border_width": 1,
             "border_radius": 100,
             "input_type_preset": "paragraph",
-            "style_class": "button",
-            "display_type": "text",
-            "label": "Sign up",
+            "style_class": "button-unstyled",
+            "display_type": "arrow",
+            "label": "Sign Up",
             "integrated_button": false,
             "button_type_preset": "paragraph",
+            "padding-block-start": 4,
+            "padding-block-end": 4,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_6Ch4dB": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<h5></h5><h5></h5><h4>MAKE better matcha at home<strong><br/></strong></h4><p><br/>Media Inquiries:<br/><strong>media@makematcha.co</strong></p><p>© 2026, MAKE Matcha Co.</p><h5></h5>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
           "blocks": {}
-        },
-        "group_cJw7qz": {
-          "type": "group",
-          "name": "t:names.group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "text_LYAjyM": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h5></h5><h5></h5><h4>MAKE better matcha at home<strong><br/></strong></h4><p><br/>Media Inquiries:<br/><strong>media@makematcha.co</strong></p><p>© 2026, MAKE Matcha Co.</p><h5></h5>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_LYAjyM"
-          ]
         }
       },
       "block_order": [
-        "group_wErUQf",
-        "email-signup_HafH7P",
-        "group_cJw7qz"
+        "group_EJMKU9",
+        "email_signup_t3aAfi",
+        "text_6Ch4dB"
       ],
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
-        "gap": 20,
-        "color_scheme": "scheme-5",
+        "gap": 12,
+        "color_scheme": "scheme-2",
         "padding-block-start": 36,
         "padding-block-end": 36
-      }
-    },
-    "utilities": {
-      "type": "footer-utilities",
-      "blocks": {
-        "copyright": {
-          "type": "footer-copyright",
-          "settings": {
-            "show_powered_by": true,
-            "font_size": "0.75rem",
-            "case": "none"
-          },
-          "blocks": {}
-        },
-        "policy_list": {
-          "type": "footer-policy-list",
-          "settings": {
-            "font_size": "0.75rem",
-            "case": "none"
-          },
-          "blocks": {}
-        },
-        "social_icons": {
-          "type": "social-links",
-          "settings": {
-            "facebook_url": "https://www.facebook.com",
-            "instagram_url": "https://www.instagram.com",
-            "youtube_url": "https://www.youtube.com",
-            "tiktok_url": "https://www.tiktok.com",
-            "twitter_url": "https://www.twitter.com",
-            "threads_url": "",
-            "linkedin_url": "",
-            "bluesky_url": "",
-            "snapchat_url": "",
-            "pinterest_url": "",
-            "tumblr_url": "",
-            "vimeo_url": "",
-            "custom_url": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "copyright",
-        "policy_list",
-        "social_icons"
-      ],
-      "disabled": true,
-      "settings": {
-        "section_width": "page-width",
-        "gap": 24,
-        "divider_thickness": 1,
-        "color_scheme": "scheme-5",
-        "padding-block-start": 12,
-        "padding-block-end": 16
       }
     }
   },
   "order": [
-    "footer",
-    "utilities"
+    "footer_WnX4aJ"
   ]
 }

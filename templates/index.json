@@ -9,10 +9,10 @@
  */
 {
   "sections": {
-    "hero_CHMwiN": {
+    "hero_VzAHBF": {
       "type": "hero",
       "blocks": {
-        "group_XMJUJz": {
+        "group_EVeJ7U": {
           "type": "group",
           "name": "t:names.group",
           "settings": {
@@ -52,7 +52,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "group_RnntHA": {
+            "group_T76iip": {
               "type": "group",
               "name": "t:names.group",
               "settings": {
@@ -92,42 +92,15 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_CLaQwh": {
+                "text_D8YTfe": {
                   "type": "text",
-                  "name": "t:names.heading",
+                  "name": "t:names.text",
                   "settings": {
-                    "text": "<p>MAKE Matcha Co.<br/>Premium Matcha & Hojicha from Japan</p>",
-                    "width": "100%",
-                    "max_width": "normal",
+                    "text": "<p><strong>MAKE Matcha Co.<br/>Premium Matcha & Hojicha from Japan</strong></p>",
+                    "width": "fit-content",
+                    "max_width": "none",
                     "alignment": "left",
-                    "type_preset": "h6",
-                    "font": "var(--font-accent--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_J7zhUd": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "disabled": true,
-                  "settings": {
-                    "text": "<h1>New arrivals</h1>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h2",
+                    "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -145,12 +118,12 @@
                   },
                   "blocks": {}
                 },
-                "button_QJHcqz": {
+                "button_nDByQN": {
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
-                    "label": "Shop now",
-                    "link": "shopify://collections/all",
+                    "label": "Shop Now",
+                    "link": "shopify://collections/best-selling-products",
                     "open_in_new_tab": false,
                     "style_class": "button",
                     "width": "fit-content",
@@ -162,57 +135,28 @@
                 }
               },
               "block_order": [
-                "text_CLaQwh",
-                "text_J7zhUd",
-                "button_QJHcqz"
+                "text_D8YTfe",
+                "button_nDByQN"
               ]
-            },
-            "text_WqEW3E": {
-              "type": "text",
-              "name": "t:names.text",
-              "disabled": true,
-              "settings": {
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
-                "width": "fit-content",
-                "max_width": "none",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "group_RnntHA",
-            "text_WqEW3E"
+            "group_T76iip"
           ]
         }
       },
       "block_order": [
-        "group_XMJUJz"
+        "group_EVeJ7U"
       ],
       "name": "t:names.hero_bottom_aligned",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/hero_a.jpg",
+        "image_1": "shopify://shop_images/MAKE_Homepage_Hero_Premium_Matcha_How_To_Make.jpg",
         "media_type_2": "image",
-        "image_2": "shopify://shop_images/hero_b.jpg",
-        "stack_media_on_mobile": true,
-        "custom_mobile_media": false,
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": true,
         "media_type_1_mobile": "image",
+        "image_1_mobile": "shopify://shop_images/MAKE_Homepage_Hero_Premium_Matcha_How_To_Make_Mobile.jpg",
         "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -225,10 +169,10 @@
         "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 16,
         "section_width": "page-width",
-        "section_height": "large",
-        "section_height_custom": 50,
+        "section_height": "custom",
+        "section_height_custom": 86,
         "color_scheme": "scheme-5",
-        "toggle_overlay": true,
+        "toggle_overlay": false,
         "overlay_color": "#00000026",
         "overlay_style": "gradient",
         "gradient_direction": "to top",
@@ -238,154 +182,55 @@
         "padding-block-end": 40
       }
     },
-    "press_marquee_PrzfUe": {
-      "type": "press-marquee",
+    "176763204961c21af2": {
+      "type": "_blocks",
       "blocks": {
-        "logo_KcihiT": {
-          "type": "logo",
+        "ai_gen_block_d1c770f_WYib8y": {
+          "type": "ai_gen_block_d1c770f",
           "settings": {
-            "logo": "shopify://shop_images/Vogue_95639444-40d0-421f-902c-3ee61c4927de.png"
-          }
-        },
-        "logo_a3BLVm": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Esquire_logo_1_eed544b2-4a52-4f56-9d40-051ca01b039d.png"
-          }
-        },
-        "logo_AzHqGT": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Gooponlinelogo_1_e801533c-6659-46fd-a3e9-e95dee144a39.png"
-          }
-        },
-        "logo_GF9dfe": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Good-Housekeeping-logo_86002204-c812-4d00-8674-c587500d199d.png"
-          }
-        },
-        "logo_kwgH3r": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/the-healthy-color_15610024-0066-443d-872b-8bd1da68ea5e.png"
-          }
-        },
-        "logo_dFU6kT": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/EDITE-LOGO-BLACK.png"
-          }
-        }
-      },
-      "block_order": [
-        "logo_KcihiT",
-        "logo_a3BLVm",
-        "logo_AzHqGT",
-        "logo_GF9dfe",
-        "logo_kwgH3r",
-        "logo_dFU6kT"
-      ],
-      "name": "Press marquee",
-      "settings": {
-        "heading": "",
-        "heading_size": 24,
-        "heading_spacing": 32,
-        "logo_height": 40,
-        "logo_height_mobile": 40,
-        "logo_spacing": 60,
-        "scroll_speed": 60,
-        "background_color": "#eef1ea",
-        "text_color": "#000000",
-        "section_padding_top": 32,
-        "section_padding_bottom": 32
-      }
-    },
-    "section_zKNaHV": {
-      "type": "section",
-      "blocks": {
-        "text_r7FEf4": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A curated collection of premium, small-batch matcha</p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "text_UzVKLf": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<p>We work with a level-10 tea master to source exceptional matcha and hojicha for you to make at home. This is not another white label brand.</p><p><strong>Explore our grades and find the best matcha for you</strong>. </p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_3iT94V": {
-          "type": "button",
-          "settings": {
-            "label": "Shop now",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
+            "heading": "",
+            "heading_size": 12,
+            "heading_spacing": 12,
+            "logo_1": "shopify://shop_images/Vogue_95639444-40d0-421f-902c-3ee61c4927de.png",
+            "logo_2": "shopify://shop_images/Esquire_logo_1_eed544b2-4a52-4f56-9d40-051ca01b039d.png",
+            "logo_3": "shopify://shop_images/Gooponlinelogo_1_e801533c-6659-46fd-a3e9-e95dee144a39.png",
+            "logo_4": "shopify://shop_images/Good-Housekeeping-logo_86002204-c812-4d00-8674-c587500d199d.png",
+            "logo_5": "shopify://shop_images/Vogue_95639444-40d0-421f-902c-3ee61c4927de.png",
+            "logo_6": "shopify://shop_images/EDITE-LOGO-BLACK.png",
+            "logo_7": "shopify://shop_images/Gooponlinelogo_1_e801533c-6659-46fd-a3e9-e95dee144a39.png",
+            "logo_8": "shopify://shop_images/the-healthy-color_15610024-0066-443d-872b-8bd1da68ea5e.png",
+            "logo_height": 60,
+            "logo_height_mobile": 40,
+            "logo_max_width": 180,
+            "logo_max_width_mobile": 120,
+            "logo_spacing": 50,
+            "logo_opacity": 100,
+            "grayscale_amount": 100,
+            "scroll_speed": 10,
+            "background_color": "#f7f6ee",
+            "heading_color": "#000000",
+            "padding_top": 20,
+            "padding_bottom": 20
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "text_r7FEf4",
-        "text_UzVKLf",
-        "button_3iT94V"
+        "ai_gen_block_d1c770f_WYib8y"
       ],
-      "name": "t:names.pull_quote",
+      "custom_css": [
+        "img {transform: scale(0.7);}"
+      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
+        "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "page-width",
+        "gap": 0,
+        "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "",
@@ -400,11 +245,114 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "section_P7W6Rt": {
+      "type": "section",
+      "blocks": {
+        "text_jthFXW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Traditionally farmed, small-batch matcha.</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_TYatYg": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>We work with a level-10 tea master to source exceptional matcha and hojicha to make at home. This is not another white-label brand.</p><p><strong>Explore our grades and find the best matcha for you</strong>. </p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_NdGrrw": {
+          "type": "button",
+          "settings": {
+            "label": "Shop All",
+            "link": "shopify://collections/best-selling-products",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_jthFXW",
+        "text_TYatYg",
+        "button_NdGrrw"
+      ],
+      "name": "t:names.pull_quote",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 56,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 34,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
         "padding-block-start": 64,
         "padding-block-end": 64
       }
     },
-    "hero_VTEeBg": {
+    "hero_n9TR3N": {
       "type": "hero",
       "name": "t:names.hero",
       "settings": {
@@ -412,8 +360,9 @@
         "image_1": "shopify://shop_images/Screenshot_2026-01-05_at_4.11.30_PM.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
+        "custom_mobile_media": true,
         "media_type_1_mobile": "image",
+        "image_1_mobile": "shopify://shop_images/Screenshot_2026-01-05_at_4.00.31_PM.png",
         "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -428,8 +377,8 @@
         "section_width": "page-width",
         "section_height": "large",
         "section_height_custom": 50,
-        "color_scheme": "scheme-5",
-        "toggle_overlay": true,
+        "color_scheme": "scheme-2",
+        "toggle_overlay": false,
         "overlay_color": "#00000026",
         "overlay_style": "gradient",
         "gradient_direction": "to top",
@@ -439,14 +388,14 @@
         "padding-block-end": 40
       }
     },
-    "section_iqcRrm": {
+    "section_DRYfXR": {
       "type": "section",
       "blocks": {
-        "text_R8yPKc": {
+        "text_8Cch8Q": {
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Why we're different</p>",
+            "text": "<p>Why MAKE is different</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -468,14 +417,15 @@
           },
           "blocks": {}
         },
-        "text_HBjRka": {
+        "text_6B8HqM": {
           "type": "text",
+          "name": "t:names.heading",
           "settings": {
             "text": "<h3>Heritage Grade.<br/>A higher benchmark for matcha.</h3>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "h2",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -493,7 +443,7 @@
           },
           "blocks": {}
         },
-        "text_TqceCt": {
+        "text_caAxjd": {
           "type": "text",
           "name": "t:names.text",
           "settings": {
@@ -519,10 +469,11 @@
           },
           "blocks": {}
         },
-        "button_NbpJhU": {
+        "button_pAVFaa": {
           "type": "button",
+          "name": "t:names.button",
           "settings": {
-            "label": "Shop now",
+            "label": "Shop Now",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
@@ -535,12 +486,12 @@
         }
       },
       "block_order": [
-        "text_R8yPKc",
-        "text_HBjRka",
-        "text_TqceCt",
-        "button_NbpJhU"
+        "text_8Cch8Q",
+        "text_6B8HqM",
+        "text_caAxjd",
+        "button_pAVFaa"
       ],
-      "name": "t:names.pull_quote",
+      "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -549,11 +500,11 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
+        "gap": 25,
         "section_width": "page-width",
-        "section_height": "",
+        "section_height": "small",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -565,11 +516,11 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 64,
-        "padding-block-end": 64
+        "padding-block-start": 48,
+        "padding-block-end": 48
       }
     },
-    "media_with_content_6bEPqC": {
+    "media_with_content_L3KHqL": {
       "type": "media-with-content",
       "blocks": {
         "media": {
@@ -590,38 +541,12 @@
           "type": "_content-without-appearance",
           "static": true,
           "settings": {
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 24
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 63
           },
           "blocks": {
-            "text_qFbK4r": {
-              "type": "text",
-              "name": "t:names.caption",
-              "settings": {
-                "text": "<p>Bestseller</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h6",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "group_eyEDQC": {
+            "group_34nnET": {
               "type": "group",
               "settings": {
                 "content_direction": "column",
@@ -660,14 +585,15 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_hbicW7": {
+                "text_FHL6AL": {
                   "type": "text",
+                  "name": "t:names.caption",
                   "settings": {
                     "text": "<p>Matcha Benefits</p>",
                     "width": "fit-content",
-                    "max_width": "narrow",
+                    "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "paragraph",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -685,7 +611,7 @@
                   },
                   "blocks": {}
                 },
-                "text_mcnFjQ": {
+                "text_r8kNNe": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
@@ -711,7 +637,7 @@
                   },
                   "blocks": {}
                 },
-                "text_epagjH": {
+                "text_8RfHh4": {
                   "type": "text",
                   "settings": {
                     "text": "<p>Sustained energy, a calmer focus, and loaded with antioxidants.</p>",
@@ -735,33 +661,32 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "button_6CgExX": {
+                  "type": "button",
+                  "settings": {
+                    "label": "Shop Now",
+                    "link": "shopify://collections/all",
+                    "open_in_new_tab": false,
+                    "style_class": "button",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
-                "text_hbicW7",
-                "text_mcnFjQ",
-                "text_epagjH"
+                "text_FHL6AL",
+                "text_r8kNNe",
+                "text_8RfHh4",
+                "button_6CgExX"
               ]
-            },
-            "button_bNfndQ": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "text_qFbK4r",
-            "group_eyEDQC",
-            "button_bNfndQ"
+            "group_34nnET"
           ]
         }
       },
@@ -769,21 +694,21 @@
       "settings": {
         "media_position": "left",
         "media_width": "medium",
-        "media_height": "60svh",
+        "media_height": "80svh",
         "section_width": "full-width",
         "extend_media": true,
-        "color_scheme": "scheme-4",
+        "color_scheme": "scheme-1",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
     },
-    "marquee_iBwWaw": {
+    "marquee_9CGRDF": {
       "type": "marquee",
       "blocks": {
-        "text_aH9LgW": {
+        "text_T8fFMR": {
           "type": "text",
           "settings": {
-            "text": "<p>Subscribe & Save up to 20%<strong>       </strong>• </p>",
+            "text": "<p>Subscribe & Save up to 20% • Subscribe & Save up to 20% •</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -791,7 +716,7 @@
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "tight",
-            "letter_spacing": "tight",
+            "letter_spacing": "loose",
             "case": "none",
             "wrap": "nowrap",
             "color": "var(--color-foreground)",
@@ -807,21 +732,21 @@
         }
       },
       "block_order": [
-        "text_aH9LgW"
+        "text_T8fFMR"
       ],
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
-        "color_scheme": "",
+        "color_scheme": "scheme-5",
         "padding-block-start": 24,
         "padding-block-end": 24,
         "gap_between_elements": 24
       }
     },
-    "section_WbXgWN": {
+    "section_DX9WEN": {
       "type": "section",
       "blocks": {
-        "group_9hRxJp": {
+        "group_Pa4zQV": {
           "type": "group",
           "name": "t:names.column",
           "settings": {
@@ -861,7 +786,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_xqh9BJ": {
+            "text_maic66": {
               "type": "text",
               "name": "t:names.heading",
               "settings": {
@@ -887,7 +812,7 @@
               },
               "blocks": {}
             },
-            "text_7AtVcG": {
+            "text_gnfXrR": {
               "type": "text",
               "name": "t:names.description",
               "settings": {
@@ -915,11 +840,11 @@
             }
           },
           "block_order": [
-            "text_xqh9BJ",
-            "text_7AtVcG"
+            "text_maic66",
+            "text_gnfXrR"
           ]
         },
-        "group_AAPTgE": {
+        "group_ErD6Cb": {
           "type": "group",
           "name": "t:names.column",
           "settings": {
@@ -959,7 +884,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_LYibxb": {
+            "text_jTtkJT": {
               "type": "text",
               "name": "t:names.heading",
               "settings": {
@@ -985,11 +910,37 @@
               },
               "blocks": {}
             },
-            "text_RtgNYW": {
+            "text_AXmcgL": {
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p>Subscribe to MAKE's matcha or hojicha and receive it monthly—reliable, consistent, and ready for your daily ritual. Plus enjoy 20% off and free shipping. <br/><br/>Pause or cancel anytime.</p><p><a href=\"/products/make-30g-imperial-matcha-refill\" title=\"MAKE Imperial Matcha Refill\">Shop Subscriptions</a></p>",
+                "text": "<p>Subscribe to MAKE's matcha or hojicha and receive it monthly—reliable, consistent, and ready for your daily ritual. Plus, enjoy 20% off and free shipping. <br/><br/>Pause or cancel anytime.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_FrWi3x": {
+              "type": "text",
+              "name": "t:names.description",
+              "settings": {
+                "text": "<p><a href=\"/products/make-30g-imperial-matcha-refill\" title=\"MAKE Imperial Matcha Refill\">Shop Subscriptions</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -1013,11 +964,12 @@
             }
           },
           "block_order": [
-            "text_LYibxb",
-            "text_RtgNYW"
+            "text_jTtkJT",
+            "text_AXmcgL",
+            "text_FrWi3x"
           ]
         },
-        "group_JPxXbd": {
+        "group_cJrJDc": {
           "type": "group",
           "name": "t:names.column",
           "settings": {
@@ -1057,7 +1009,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_VJwExb": {
+            "text_mFyfXf": {
               "type": "text",
               "name": "t:names.heading",
               "settings": {
@@ -1083,7 +1035,7 @@
               },
               "blocks": {}
             },
-            "text_Ljf6eG": {
+            "text_czBfGw": {
               "type": "text",
               "name": "t:names.description",
               "settings": {
@@ -1111,15 +1063,15 @@
             }
           },
           "block_order": [
-            "text_VJwExb",
-            "text_Ljf6eG"
+            "text_mFyfXf",
+            "text_czBfGw"
           ]
         }
       },
       "block_order": [
-        "group_9hRxJp",
-        "group_AAPTgE",
-        "group_JPxXbd"
+        "group_Pa4zQV",
+        "group_ErD6Cb",
+        "group_cJrJDc"
       ],
       "name": "t:names.multicolumn",
       "settings": {
@@ -1134,7 +1086,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1150,7 +1102,7 @@
         "padding-block-end": 48
       }
     },
-    "hero_h4AaFV": {
+    "hero_yGPUFw": {
       "type": "hero",
       "name": "t:names.hero",
       "settings": {
@@ -1158,8 +1110,9 @@
         "image_1": "shopify://shop_images/Hojicha_Homepage_V2_8064b6f7-8e92-4993-976f-c56ee6cf542a.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
+        "custom_mobile_media": true,
         "media_type_1_mobile": "image",
+        "image_1_mobile": "shopify://shop_images/Screenshot_2026-01-05_at_4.02.52_PM.png",
         "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -1172,7 +1125,7 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "page-width",
-        "section_height": "large",
+        "section_height": "medium",
         "section_height_custom": 50,
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
@@ -1187,14 +1140,14 @@
     }
   },
   "order": [
-    "hero_CHMwiN",
-    "press_marquee_PrzfUe",
-    "section_zKNaHV",
-    "hero_VTEeBg",
-    "section_iqcRrm",
-    "media_with_content_6bEPqC",
-    "marquee_iBwWaw",
-    "section_WbXgWN",
-    "hero_h4AaFV"
+    "hero_VzAHBF",
+    "176763204961c21af2",
+    "section_P7W6Rt",
+    "hero_n9TR3N",
+    "section_DRYfXR",
+    "media_with_content_L3KHqL",
+    "marquee_9CGRDF",
+    "section_DX9WEN",
+    "hero_yGPUFw"
   ]
 }

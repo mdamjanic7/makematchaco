@@ -1,0 +1,347 @@
+{% doc %}
+  @prompt
+    Create a customizable product badge/flag block that displays on product pages. The badge should support:
+    - Custom text that can be set per product (e.g., "New Arrival", "Limited Edition", "Best Seller", "Organic")
+    - Positioning options (top-left, top-right, bottom-left, bottom-right) over the product image
+    - Color customization (background color and text color)
+    - Typography options (font size, font weight, text transform)
+    - Border radius/corner rounding options
+    - Optional icon or emoji support
+    - The badge should overlay on the product media gallery
+    - Should be easy to show/hide per product
+    The block should be insertable into the product template and allow merchants to easily customize the badge text and styling for each product.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-badge-{{ ai_gen_id }} {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .ai-product-badge-wrapper-{{ ai_gen_id }} {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .ai-product-badge-wrapper-{{ ai_gen_id }}--top-left {
+    top: {{ block.settings.offset_vertical }}px;
+    left: {{ block.settings.offset_horizontal }}px;
+  }
+
+  .ai-product-badge-wrapper-{{ ai_gen_id }}--top-right {
+    top: {{ block.settings.offset_vertical }}px;
+    right: {{ block.settings.offset_horizontal }}px;
+  }
+
+  .ai-product-badge-wrapper-{{ ai_gen_id }}--bottom-left {
+    bottom: {{ block.settings.offset_vertical }}px;
+    left: {{ block.settings.offset_horizontal }}px;
+  }
+
+  .ai-product-badge-wrapper-{{ ai_gen_id }}--bottom-right {
+    bottom: {{ block.settings.offset_vertical }}px;
+    right: {{ block.settings.offset_horizontal }}px;
+  }
+
+  .ai-product-badge-content-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: {{ block.settings.icon_spacing }}px;
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+    background-color: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    font-size: {{ block.settings.font_size }}px;
+    font-weight: {{ block.settings.font_weight }};
+    text-transform: {{ block.settings.text_transform }};
+    line-height: 1.2;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-product-badge-icon-{{ ai_gen_id }} {
+    font-size: {{ block.settings.icon_size }}px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-product-badge-text-{{ ai_gen_id }} {
+    line-height: 1.2;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-product-badge-content-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.font_size }}px * 0.9);
+      padding: calc({{ block.settings.padding_vertical }}px * 0.8) calc({{ block.settings.padding_horizontal }}px * 0.8);
+    }
+
+    .ai-product-badge-icon-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.icon_size }}px * 0.9);
+    }
+  }
+{% endstyle %}
+
+{% if block.settings.show_badge and block.settings.badge_text != blank %}
+  <product-badge-{{ ai_gen_id }} class="ai-product-badge-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+    <div class="ai-product-badge-wrapper-{{ ai_gen_id }} ai-product-badge-wrapper-{{ ai_gen_id }}--{{ block.settings.position }}">
+      <div class="ai-product-badge-content-{{ ai_gen_id }}">
+        {% if block.settings.icon != blank %}
+          <span class="ai-product-badge-icon-{{ ai_gen_id }}">{{ block.settings.icon }}</span>
+        {% endif %}
+        <span class="ai-product-badge-text-{{ ai_gen_id }}">{{ block.settings.badge_text }}</span>
+      </div>
+    </div>
+  </product-badge-{{ ai_gen_id }}>
+{% endif %}
+
+<script>
+  (function() {
+    class ProductBadge{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.positionBadge();
+      }
+
+      positionBadge() {
+        const mediaGallery = this.closest('.product__media-wrapper, .product-media-container, [class*="media"]');
+        if (mediaGallery) {
+          const firstMedia = mediaGallery.querySelector('img, video, model-viewer');
+          if (firstMedia) {
+            const wrapper = this.querySelector('.ai-product-badge-wrapper-{{ ai_gen_id }}');
+            if (wrapper) {
+              const rect = firstMedia.getBoundingClientRect();
+              const parentRect = this.getBoundingClientRect();
+              wrapper.style.maxWidth = rect.width + 'px';
+            }
+          }
+        }
+      }
+    }
+
+    customElements.define('product-badge-{{ ai_gen_id }}', ProductBadge{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product badge",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Badge content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "New Arrival"
+    },
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "Icon or emoji",
+      "info": "Add an emoji or icon character (e.g., ⭐, 🔥, ✨)"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 10,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "label": "Icon spacing",
+      "min": 0,
+      "max": 16,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Position"
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Badge position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "top-left"
+    },
+    {
+      "type": "range",
+      "id": "offset_horizontal",
+      "label": "Horizontal offset",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "offset_vertical",
+      "label": "Vertical offset",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#6b7fff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 4,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical padding",
+      "min": 2,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product badge"
+    }
+  ]
+}
+{% endschema %}

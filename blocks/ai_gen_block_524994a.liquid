@@ -1,0 +1,313 @@
+{% doc %}
+  @prompt
+    Create a product card badge block for collection pages that displays TWO customizable flags/badges on product card images. Requirements:
+    - Designed specifically for product cards in collection grids (not floating randomly on the page)
+    - Support for TWO separate badges per product card
+    - Each badge should have independent positioning options (top-left, top-right, bottom-left, bottom-right) over the product card image
+    - Custom text for each badge (e.g., Badge 1: "New", Badge 2: "Organic")
+    - Color customization for each badge (background and text color)
+    - Typography options (font size, text transform)
+    - Border radius options
+    - The badges must be properly anchored to the product card image container, not floating
+    - Easy to show/hide each badge independently
+    - Should work within the product card media block in collection templates
+    The block should be insertable into collection product cards and allow merchants to set two different badges per product with independent styling.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-badge-container-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    display: block;
+  }
+
+  .ai-product-badge-{{ ai_gen_id }} {
+    position: absolute;
+    padding: {{ block.settings.badge_padding_vertical }}px {{ block.settings.badge_padding_horizontal }}px;
+    font-size: {{ block.settings.badge_font_size }}px;
+    font-weight: 600;
+    text-transform: {{ block.settings.badge_text_transform }};
+    border-radius: {{ block.settings.badge_border_radius }}px;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+
+  .ai-product-badge-1-{{ ai_gen_id }} {
+    background-color: {{ block.settings.badge_1_bg_color }};
+    color: {{ block.settings.badge_1_text_color }};
+    {% case block.settings.badge_1_position %}
+      {% when 'top-left' %}
+        top: {{ block.settings.badge_offset }}px;
+        left: {{ block.settings.badge_offset }}px;
+      {% when 'top-right' %}
+        top: {{ block.settings.badge_offset }}px;
+        right: {{ block.settings.badge_offset }}px;
+      {% when 'bottom-left' %}
+        bottom: {{ block.settings.badge_offset }}px;
+        left: {{ block.settings.badge_offset }}px;
+      {% when 'bottom-right' %}
+        bottom: {{ block.settings.badge_offset }}px;
+        right: {{ block.settings.badge_offset }}px;
+    {% endcase %}
+  }
+
+  .ai-product-badge-2-{{ ai_gen_id }} {
+    background-color: {{ block.settings.badge_2_bg_color }};
+    color: {{ block.settings.badge_2_text_color }};
+    {% case block.settings.badge_2_position %}
+      {% when 'top-left' %}
+        top: {{ block.settings.badge_offset }}px;
+        left: {{ block.settings.badge_offset }}px;
+      {% when 'top-right' %}
+        top: {{ block.settings.badge_offset }}px;
+        right: {{ block.settings.badge_offset }}px;
+      {% when 'bottom-left' %}
+        bottom: {{ block.settings.badge_offset }}px;
+        left: {{ block.settings.badge_offset }}px;
+      {% when 'bottom-right' %}
+        bottom: {{ block.settings.badge_offset }}px;
+        right: {{ block.settings.badge_offset }}px;
+    {% endcase %}
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-product-badge-{{ ai_gen_id }} {
+      font-size: {{ block.settings.badge_font_size | times: 0.85 }}px;
+      padding: {{ block.settings.badge_padding_vertical | times: 0.85 }}px {{ block.settings.badge_padding_horizontal | times: 0.85 }}px;
+    }
+
+    .ai-product-badge-1-{{ ai_gen_id }},
+    .ai-product-badge-2-{{ ai_gen_id }} {
+      {% case block.settings.badge_1_position %}
+        {% when 'top-left' %}
+          top: {{ block.settings.badge_offset | times: 0.75 }}px;
+          left: {{ block.settings.badge_offset | times: 0.75 }}px;
+        {% when 'top-right' %}
+          top: {{ block.settings.badge_offset | times: 0.75 }}px;
+          right: {{ block.settings.badge_offset | times: 0.75 }}px;
+        {% when 'bottom-left' %}
+          bottom: {{ block.settings.badge_offset | times: 0.75 }}px;
+          left: {{ block.settings.badge_offset | times: 0.75 }}px;
+        {% when 'bottom-right' %}
+          bottom: {{ block.settings.badge_offset | times: 0.75 }}px;
+          right: {{ block.settings.badge_offset | times: 0.75 }}px;
+      {% endcase %}
+    }
+  }
+{% endstyle %}
+
+<div class="ai-product-badge-container-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.badge_1_enabled and block.settings.badge_1_text != blank %}
+    <div class="ai-product-badge-{{ ai_gen_id }} ai-product-badge-1-{{ ai_gen_id }}">
+      {{ block.settings.badge_1_text }}
+    </div>
+  {% endif %}
+
+  {% if block.settings.badge_2_enabled and block.settings.badge_2_text != blank %}
+    <div class="ai-product-badge-{{ ai_gen_id }} ai-product-badge-2-{{ ai_gen_id }}">
+      {{ block.settings.badge_2_text }}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Product card badges",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Badge 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "badge_1_enabled",
+      "label": "Show badge 1",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_1_text",
+      "label": "Text",
+      "default": "New"
+    },
+    {
+      "type": "select",
+      "id": "badge_1_position",
+      "label": "Position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "top-left"
+    },
+    {
+      "type": "color",
+      "id": "badge_1_bg_color",
+      "label": "Background color",
+      "default": "#6b7fff"
+    },
+    {
+      "type": "color",
+      "id": "badge_1_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Badge 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "badge_2_enabled",
+      "label": "Show badge 2",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_2_text",
+      "label": "Text",
+      "default": "Organic"
+    },
+    {
+      "type": "select",
+      "id": "badge_2_position",
+      "label": "Position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "top-right"
+    },
+    {
+      "type": "color",
+      "id": "badge_2_bg_color",
+      "label": "Background color",
+      "default": "#2a170a"
+    },
+    {
+      "type": "color",
+      "id": "badge_2_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "badge_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "badge_text_transform",
+      "label": "Text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "badge_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "badge_padding_vertical",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "badge_padding_horizontal",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "badge_offset",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Offset from edge",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product card badges"
+    }
+  ]
+}
+{% endschema %}

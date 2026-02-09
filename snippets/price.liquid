@@ -100,6 +100,9 @@
         <span class="price">{{ price | default: '&nbsp;' }}</span>
       </span>
     {% else %}
+      {% comment %}
+<span class="appstle_stand_alone_price_display_selector" data-product-data="{{ product_resource | json | escape }}" style="display:none;"></span>
+{% endcomment %}
       <span class="price">{{ price | default: '&nbsp;' }}</span>
     {% endif %}
 
