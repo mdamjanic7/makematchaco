@@ -136,6 +136,7 @@
     },
     "section_K6Bk7j": {
       "type": "section",
+      "disabled": true,
       "blocks": {
         "text_PBXKCj": {
           "type": "text",
@@ -198,6 +199,7 @@
     },
     "section_CeBafR": {
       "type": "section",
+      "disabled": true,
       "blocks": {
         "group_gNQ4nK": {
           "type": "group",
@@ -831,6 +833,57 @@
         "gradient_direction": "to top",
         "padding-block-start": 48,
         "padding-block-end": 48
+      }
+    },
+    "matcha_scroll_accordion": {
+      "type": "matcha-grade-scroll-accordion",
+      "blocks": {
+        "heritage_row": {
+          "type": "grade_row",
+          "settings": {
+            "heading": "Heritage Grade",
+            "origin": "Uji, Japan",
+            "tagline": "Our signature, highest grade matcha",
+            "description": "<p>This is MAKE's signature and highest grade matcha.</p><p>Heritage Grade is produced in limited quantities under the guidance of a level ten-dan tea master. It represents less than 2% of matcha produced worldwide that still follows traditional farming and processing methods.</p><p>We work directly with small, independent farms and pay premium prices for leaves that meet these exacting standards — often selecting only a fraction of each harvest. This level of care, time, and expertise results in a matcha with greater depth, sweetness, and balance.</p>",
+            "link_url": "/products/make-heritage-matcha-refill",
+            "link_text": "Shop Heritage Grade",
+            "accent_color": "#4455BB"
+          }
+        },
+        "imperial_row": {
+          "type": "grade_row",
+          "settings": {
+            "heading": "Imperial Grade",
+            "origin": "Kagoshima, Japan",
+            "tagline": "JAS Certified Organic matcha",
+            "description": "<p>This is MAKE's JAS Certified Organic matcha.</p><p>Imperial Grade is sourced from first spring harvest leaves grown without pesticides or synthetic fertilizers. It offers a creamy umami profile with remarkable depth, alongside a vibrant green hue, clean aroma, and smooth finish.</p><p>Proving that organic doesn't have to mean bitter when every step is done properly.</p>",
+            "link_url": "/products/make-30g-imperial-matcha-refill",
+            "link_text": "Shop Imperial Grade",
+            "accent_color": "#3EA34E"
+          }
+        },
+        "ceremonial_row": {
+          "type": "grade_row",
+          "settings": {
+            "heading": "Ceremonial Grade",
+            "origin": "Shizuoka, Japan",
+            "tagline": "Our everyday matcha",
+            "description": "<p>This is MAKE's everyday matcha.</p><p>Sourced from spring harvest leaves and shade-grown for four weeks, Ceremonial Grade is crafted for daily enjoyment. Balanced umami, a bright green color, and a smooth, approachable flavor make it a pleasure to whisk each morning — whether prepared traditionally or mixed into lattes and other matcha drinks.</p>",
+            "link_url": "/products/make-30g-ceremonial-premium-matcha-refill",
+            "link_text": "Shop Ceremonial Grade",
+            "accent_color": "#DFC5A0"
+          }
+        }
+      },
+      "block_order": [
+        "heritage_row",
+        "imperial_row",
+        "ceremonial_row"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "main": {
@@ -1601,6 +1654,7 @@
     "hero_hwDnNC",
     "section_K6Bk7j",
     "section_CeBafR",
+    "matcha_scroll_accordion",
     "main",
     "media_with_content_adiWcb",
     "media_with_content_jCmFgX",

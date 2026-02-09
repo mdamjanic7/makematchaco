@@ -1,0 +1,552 @@
+{% doc %}
+  Matcha Grade Accordion
+
+  Split layout: persistent image area on the left that crossfades between grade
+  images, and a click-to-expand accordion on the right. No scroll hijacking.
+
+  @example
+  Used on the matcha-grades page template.
+{% enddoc %}
+
+<matcha-scroll-accordion
+  class="scroll-accordion color-{{ section.settings.color_scheme }}"
+  {{ section.shopify_attributes }}
+  style="
+    --scroll-accordion-padding-top: {{ section.settings.padding_top | default: 48 }}px;
+    --scroll-accordion-padding-bottom: {{ section.settings.padding_bottom | default: 48 }}px;
+  "
+>
+  <div class="scroll-accordion__container section--page-width">
+    {%- comment -%} Left: image area — all images stacked, only active one visible {%- endcomment -%}
+    <div class="scroll-accordion__media" aria-hidden="true">
+      {% for block in section.blocks %}
+        {%- liquid
+          assign row_image = block.settings.image
+          if row_image == blank and block.settings.product != blank
+            assign row_image = block.settings.product.featured_image
+          endif
+        -%}
+        <div
+          class="scroll-accordion__media-item{% if forloop.first %} scroll-accordion__media-item--active{% endif %}"
+          data-media-index="{{ forloop.index0 }}"
+        >
+          {% if row_image %}
+            {{
+              row_image
+              | image_url: width: 900
+              | image_tag:
+                class: 'scroll-accordion__image',
+                loading: 'lazy',
+                widths: '400, 600, 900',
+                sizes: '(min-width: 768px) 45vw, 100vw',
+                alt: block.settings.heading
+            }}
+          {% else %}
+            <div class="scroll-accordion__image-placeholder"></div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {%- comment -%} Right: accordion rows {%- endcomment -%}
+    <div class="scroll-accordion__rows" role="list">
+      {% for block in section.blocks %}
+        {%- liquid
+          assign row_link = block.settings.link_url
+          if row_link == blank and block.settings.product != blank
+            assign row_link = block.settings.product.url
+          endif
+          assign row_link_text = block.settings.link_text | default: 'Shop Now'
+          if block.settings.link_text == blank and block.settings.product != blank
+            assign row_link_text = 'Shop ' | append: block.settings.heading
+          endif
+        -%}
+        <div
+          class="scroll-accordion__row{% if forloop.first %} scroll-accordion__row--active{% endif %}"
+          {{ block.shopify_attributes }}
+          role="listitem"
+          data-index="{{ forloop.index0 }}"
+          style="--row-accent: {{ block.settings.accent_color | default: '#999999' }};"
+        >
+          <button
+            class="scroll-accordion__row-header"
+            type="button"
+            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+            aria-controls="scroll-accordion-content-{{ block.id }}"
+          >
+            <h2 class="scroll-accordion__heading">{{ block.settings.heading | escape }}</h2>
+            <div class="scroll-accordion__row-header-meta">
+              <span class="scroll-accordion__dot" aria-hidden="true"></span>
+              <span class="scroll-accordion__origin">{{ block.settings.origin | escape }}</span>
+            </div>
+            <span class="scroll-accordion__row-indicator" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5L6 8.5L10 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+
+          <div
+            class="scroll-accordion__row-content"
+            id="scroll-accordion-content-{{ block.id }}"
+            role="region"
+          >
+            <div class="scroll-accordion__row-content-inner">
+              <div class="scroll-accordion__text">
+                {% if block.settings.tagline != blank %}
+                  <p class="scroll-accordion__tagline">{{ block.settings.tagline | escape }}</p>
+                {% endif %}
+
+                {% if block.settings.description != blank %}
+                  <div class="scroll-accordion__description">
+                    {{ block.settings.description }}
+                  </div>
+                {% endif %}
+
+                {% if row_link != blank %}
+                  <a href="{{ row_link }}" class="scroll-accordion__cta">
+                    <span>{{ row_link_text | escape }}</span>
+                    <span class="scroll-accordion__cta-arrow" aria-hidden="true">&rarr;</span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</matcha-scroll-accordion>
+
+<script src="{{ 'matcha-scroll-accordion.js' | asset_url }}" type="module"></script>
+
+{% stylesheet %}
+/* =============================================================================
+   Matcha Grade Accordion — Split Layout
+   ============================================================================= */
+
+.scroll-accordion {
+  display: block;
+  padding-block-start: var(--scroll-accordion-padding-top);
+  padding-block-end: var(--scroll-accordion-padding-bottom);
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+matcha-scroll-accordion {
+  display: block;
+}
+
+/* Container — image left, accordion right
+   ========================================================================== */
+
+.scroll-accordion__container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  max-width: var(--page-width, 1400px);
+  margin-inline: auto;
+  padding-inline: var(--page-margin, 16px);
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Image area — persistent, crossfades
+   ========================================================================== */
+
+.scroll-accordion__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+  flex-shrink: 0;
+
+  @media screen and (min-width: 768px) {
+    position: sticky;
+    inset-block-start: clamp(2rem, 6vh, 4rem);
+    width: 45%;
+    max-width: 500px;
+  }
+}
+
+.scroll-accordion__media-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.scroll-accordion__media-item--active {
+  opacity: 1;
+}
+
+.scroll-accordion__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.scroll-accordion__image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: rgb(var(--color-foreground-rgb) / 0.06);
+  border-radius: 4px;
+}
+
+/* Accordion rows
+   ========================================================================== */
+
+.scroll-accordion__rows {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Row base
+   ========================================================================== */
+
+.scroll-accordion__row {
+  border-block-end: 1px solid rgb(var(--color-foreground-rgb) / 0.1);
+}
+
+.scroll-accordion__row:first-child {
+  border-block-start: 1px solid rgb(var(--color-foreground-rgb) / 0.1);
+}
+
+/* Row header
+   ========================================================================== */
+
+.scroll-accordion__row-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 20px);
+  width: 100%;
+  padding-block: clamp(16px, 2.5vw, 22px);
+  padding-inline: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+  text-align: start;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-accordion__row:not(.scroll-accordion__row--active) .scroll-accordion__row-header {
+  opacity: 0.5;
+}
+
+.scroll-accordion__row:not(.scroll-accordion__row--active) .scroll-accordion__row-header:hover {
+  opacity: 0.75;
+}
+
+.scroll-accordion__row-header:focus-visible {
+  outline: 2px solid rgb(var(--color-foreground-rgb) / 0.4);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.scroll-accordion__row-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Color dot
+   ========================================================================== */
+
+.scroll-accordion__dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--row-accent);
+  flex-shrink: 0;
+}
+
+/* Origin
+   ========================================================================== */
+
+.scroll-accordion__origin {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Heading
+   ========================================================================== */
+
+.scroll-accordion__heading {
+  flex: 1;
+  font-family: var(--font-heading--family, serif);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Chevron indicator
+   ========================================================================== */
+
+.scroll-accordion__row-indicator {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.4;
+}
+
+.scroll-accordion__row--active .scroll-accordion__row-indicator {
+  transform: rotate(180deg);
+}
+
+/* Row content — animated expand/collapse
+   ========================================================================== */
+
+.scroll-accordion__row-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-accordion__row--active .scroll-accordion__row-content {
+  grid-template-rows: 1fr;
+}
+
+.scroll-accordion__row-content-inner {
+  overflow: hidden;
+}
+
+/* Text content inside expanded row
+   ========================================================================== */
+
+.scroll-accordion__text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.625rem, 1.5vw, 0.875rem);
+  padding-block-end: clamp(1rem, 2vw, 1.5rem);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease 0.12s, transform 0.4s ease 0.12s;
+}
+
+.scroll-accordion__row--active .scroll-accordion__text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-accordion__tagline {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.scroll-accordion__description {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+.scroll-accordion__description p {
+  margin-block: 0;
+}
+
+.scroll-accordion__description p + p {
+  margin-block-start: 0.75em;
+}
+
+/* CTA
+   ========================================================================== */
+
+.scroll-accordion__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  padding-block-start: 0.25rem;
+  width: fit-content;
+  border-block-end: 1px solid currentColor;
+  padding-block-end: 2px;
+  transition: gap 0.3s ease;
+}
+
+.scroll-accordion__cta:hover {
+  gap: 10px;
+}
+
+.scroll-accordion__cta:focus-visible {
+  outline: 2px solid rgb(var(--color-foreground-rgb) / 0.4);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.scroll-accordion__cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.scroll-accordion__cta:hover .scroll-accordion__cta-arrow {
+  transform: translateX(3px);
+}
+
+/* Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-accordion__media-item,
+  .scroll-accordion__row-content,
+  .scroll-accordion__text,
+  .scroll-accordion__row-indicator,
+  .scroll-accordion__row-header,
+  .scroll-accordion__cta,
+  .scroll-accordion__cta-arrow {
+    transition-duration: 0.01ms !important;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Grade Scroll Accordion",
+  "class": "scroll-accordion-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grade_row",
+      "name": "Grade Row",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image override"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Grade name",
+          "default": "Grade Name"
+        },
+        {
+          "type": "text",
+          "id": "origin",
+          "label": "Origin",
+          "default": "Origin, Japan"
+        },
+        {
+          "type": "text",
+          "id": "tagline",
+          "label": "Tagline"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Full description",
+          "default": "<p>Detailed description of this matcha grade.</p>"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL override"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Dot color",
+          "default": "#999999"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grade Scroll Accordion",
+      "blocks": [
+        {
+          "type": "grade_row",
+          "settings": {
+            "heading": "Heritage Grade",
+            "origin": "Uji, Japan",
+            "tagline": "Our signature, highest grade matcha",
+            "description": "<p>Produced in limited quantities under the guidance of a level ten-dan tea master. Heritage Grade represents less than 2% of matcha produced worldwide that still follows traditional farming and processing methods.</p>",
+            "link_text": "Shop Heritage Grade",
+            "accent_color": "#4455BB"
+          }
+        },
+        {
+          "type": "grade_row",
+          "settings": {
+            "heading": "Imperial Grade",
+            "origin": "Kagoshima, Japan",
+            "tagline": "JAS Certified Organic matcha",
+            "description": "<p>Sourced from first spring harvest leaves grown without pesticides or synthetic fertilizers. A creamy umami profile with remarkable depth, vibrant green hue, and smooth finish.</p>",
+            "link_text": "Shop Imperial Grade",
+            "accent_color": "#3EA34E"
+          }
+        },
+        {
+          "type": "grade_row",
+          "settings": {
+            "heading": "Ceremonial Grade",
+            "origin": "Shizuoka, Japan",
+            "tagline": "Our everyday matcha",
+            "description": "<p>Shade-grown for four weeks and crafted for daily enjoyment. Balanced umami, a bright green color, and a smooth, approachable flavor.</p>",
+            "link_text": "Shop Ceremonial Grade",
+            "accent_color": "#DFC5A0"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
