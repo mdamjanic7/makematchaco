@@ -4,9 +4,6 @@ class IngredientCards extends Component {
   /** @type {IntersectionObserver|null} */
   #observer = null;
 
-  /** @type {HTMLElement|null} */
-  #track = null;
-
   /** @type {boolean} */
   #isDragging = false;
 
@@ -16,130 +13,155 @@ class IngredientCards extends Component {
   /** @type {number} */
   #scrollStart = 0;
 
+  /** @type {boolean} */
+  #arrowScrolling = false;
+
   connectedCallback() {
     super.connectedCallback();
-    this.#track = this.querySelector('.ingredient-cards__track');
     this.#initObserver();
     this.#initDrag();
+    this.#initArrows();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     this.#observer?.disconnect();
     this.#observer = null;
-    this.#removeDrag();
+
+    const track = this.refs.track;
+    if (!track) return;
+
+    track.removeEventListener('pointerdown', this.#onPointerDown);
+    track.removeEventListener('pointermove', this.#onPointerMove);
+    track.removeEventListener('pointerup', this.#onPointerUp);
+    track.removeEventListener('pointercancel', this.#onPointerUp);
+    track.removeEventListener('scroll', this.#onScroll);
+    track.removeEventListener('scrollend', this.#onScrollEnd);
   }
+
+  /* Fade-in animation */
 
   #initObserver() {
     const cards = this.querySelectorAll('.ingredient-card');
     if (!cards.length) return;
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReducedMotion) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       for (const card of cards) {
         card.classList.add('ingredient-card--visible');
       }
       return;
     }
 
-    /* Enable animation state, then observe the section entering the viewport.
-       When visible, reveal all cards at once to avoid distracting per-card
-       animations during horizontal scroll. */
     this.classList.add('ingredient-cards--animate');
 
     this.#observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            for (const card of cards) {
-              card.classList.add('ingredient-card--visible');
-            }
-            this.#observer?.disconnect();
-            this.#observer = null;
+          if (!entry.isIntersecting) continue;
+
+          for (const card of cards) {
+            card.classList.add('ingredient-card--visible');
           }
+          this.#observer?.disconnect();
+          this.#observer = null;
         }
       },
       { threshold: 0.1 }
     );
 
-    /* Observe the section itself, not individual cards */
     this.#observer.observe(this);
   }
 
-  /* Drag-to-scroll for mouse and touch */
+  /* Drag-to-scroll */
 
   #initDrag() {
-    if (!this.#track) return;
+    const track = this.refs.track;
+    if (!track) return;
 
-    this.#track.addEventListener('pointerdown', this.#onPointerDown);
-    this.#track.addEventListener('pointermove', this.#onPointerMove);
-    this.#track.addEventListener('pointerup', this.#onPointerUp);
-    this.#track.addEventListener('pointercancel', this.#onPointerUp);
-  }
-
-  #removeDrag() {
-    if (!this.#track) return;
-
-    this.#track.removeEventListener('pointerdown', this.#onPointerDown);
-    this.#track.removeEventListener('pointermove', this.#onPointerMove);
-    this.#track.removeEventListener('pointerup', this.#onPointerUp);
-    this.#track.removeEventListener('pointercancel', this.#onPointerUp);
+    track.addEventListener('pointerdown', this.#onPointerDown);
+    track.addEventListener('pointermove', this.#onPointerMove);
+    track.addEventListener('pointerup', this.#onPointerUp);
+    track.addEventListener('pointercancel', this.#onPointerUp);
   }
 
   /** @param {PointerEvent} event */
   #onPointerDown = (event) => {
-    /* Only respond to primary pointer (left mouse button / single touch) */
     if (event.button !== 0) return;
 
+    const track = this.refs.track;
     this.#isDragging = true;
     this.#startX = event.clientX;
-    this.#scrollStart = this.#track.scrollLeft;
-    this.#track.setPointerCapture(event.pointerId);
-    this.#track.style.cursor = 'grabbing';
-    this.#track.style.scrollSnapType = 'none';
+    this.#scrollStart = track.scrollLeft;
+    track.setPointerCapture(event.pointerId);
+    track.style.cursor = 'grabbing';
+    track.style.scrollSnapType = 'none';
   };
 
   /** @param {PointerEvent} event */
   #onPointerMove = (event) => {
     if (!this.#isDragging) return;
-
-    const dx = event.clientX - this.#startX;
-    this.#track.scrollLeft = this.#scrollStart - dx;
+    this.refs.track.scrollLeft = this.#scrollStart - (event.clientX - this.#startX);
   };
 
   /** @param {PointerEvent} event */
   #onPointerUp = (event) => {
     if (!this.#isDragging) return;
 
+    const track = this.refs.track;
     this.#isDragging = false;
-    this.#track.releasePointerCapture(event.pointerId);
-    this.#track.style.cursor = '';
-    this.#track.style.scrollSnapType = '';
+    track.releasePointerCapture(event.pointerId);
+    track.style.cursor = '';
+    track.style.scrollSnapType = '';
   };
 
   /* Arrow navigation */
 
+  #initArrows() {
+    const track = this.refs.track;
+    if (!track) return;
+
+    track.addEventListener('scroll', this.#onScroll, { passive: true });
+    track.addEventListener('scrollend', this.#onScrollEnd);
+    this.#setArrowsForPosition(track.scrollLeft);
+  }
+
+  #onScroll = () => {
+    if (this.#arrowScrolling) return;
+    this.#setArrowsForPosition(this.refs.track.scrollLeft);
+  };
+
+  #onScrollEnd = () => {
+    this.#arrowScrolling = false;
+    this.#setArrowsForPosition(this.refs.track.scrollLeft);
+  };
+
+  /** @param {number} scrollLeft */
+  #setArrowsForPosition(scrollLeft) {
+    const { prevBtn, nextBtn, track } = this.refs;
+    if (!prevBtn || !nextBtn || !track) return;
+
+    const { scrollWidth, clientWidth } = track;
+    prevBtn.classList.toggle('ingredient-cards__arrow--hidden', scrollLeft <= 1);
+    nextBtn.classList.toggle('ingredient-cards__arrow--hidden', scrollLeft + clientWidth >= scrollWidth - 1);
+  }
+
   scrollPrev() {
-    if (!this.#track) return;
-    const cardWidth = this.#getCardScrollDistance();
-    this.#track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    const track = this.refs.track;
+    if (!track) return;
+
+    this.#arrowScrolling = true;
+    this.#setArrowsForPosition(Math.max(0, track.scrollLeft - track.clientWidth));
+    track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
   }
 
   scrollNext() {
-    if (!this.#track) return;
-    const cardWidth = this.#getCardScrollDistance();
-    this.#track.scrollBy({ left: cardWidth, behavior: 'smooth' });
-  }
+    const track = this.refs.track;
+    if (!track) return;
 
-  /** @returns {number} */
-  #getCardScrollDistance() {
-    const card = this.#track.querySelector('.ingredient-card');
-    if (!card) return 300;
-
-    const style = getComputedStyle(this.#track);
-    const gap = parseFloat(style.columnGap) || 0;
-    return card.offsetWidth + gap;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    this.#arrowScrolling = true;
+    this.#setArrowsForPosition(Math.min(maxScroll, track.scrollLeft + track.clientWidth));
+    track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
   }
 }
 

@@ -131,13 +131,6 @@
     }
   }
 
-  .ingredient-cards__carousel:hover .ingredient-cards__arrows,
-  .ingredient-cards__carousel:focus-within .ingredient-cards__arrows {
-    @media screen and (min-width: 750px) {
-      display: flex;
-    }
-  }
-
   .ingredient-cards__arrow {
     display: flex;
     align-items: center;
@@ -178,6 +171,11 @@
   .ingredient-cards__arrow-icon svg {
     width: 100%;
     height: 100%;
+  }
+
+  .ingredient-cards__arrow--hidden {
+    visibility: hidden;
+    pointer-events: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
