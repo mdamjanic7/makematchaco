@@ -1,5 +1,6 @@
 {% liquid
   assign heading = section.settings.heading
+  assign subheading = section.settings.subheading
 %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -10,8 +11,15 @@
     {%- render 'spacing-style', settings: section.settings %}
   "
 >
-  {% if heading != blank %}
-    <h2 class="ingredient-cards__heading">{{ heading | escape }}</h2>
+  {% if heading != blank or subheading != blank %}
+    <div class="ingredient-cards__header">
+      {% if heading != blank %}
+        <h2 class="ingredient-cards__heading">{{ heading | escape }}</h2>
+      {% endif %}
+      {% if subheading != blank %}
+        <p class="ingredient-cards__subheading">{{ subheading | escape }}</p>
+      {% endif %}
+    </div>
   {% endif %}
 
   <div class="ingredient-cards__track">
@@ -33,6 +41,13 @@
     }
   }
 
+  .ingredient-cards__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+    padding-inline: var(--ingredient-cards-margin);
+  }
+
   .ingredient-cards__heading {
     font-family: var(--font-heading--family);
     font-size: var(--font-size--h3);
@@ -40,7 +55,15 @@
     letter-spacing: var(--letter-spacing--heading-tight);
     color: rgb(var(--color-foreground-heading));
     margin: 0;
-    padding-inline: var(--ingredient-cards-margin);
+  }
+
+  .ingredient-cards__subheading {
+    font-family: var(--font-body--family);
+    font-size: var(--font-size--paragraph);
+    line-height: var(--line-height--body-normal);
+    color: var(--color-foreground);
+    margin: 0;
+    max-width: 40ch;
   }
 
   .ingredient-cards__track {
@@ -78,6 +101,12 @@
       "id": "heading",
       "label": "t:settings.heading",
       "default": "What's in every cup"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "t:settings.text",
+      "default": "Calm energy. Sharper focus. Faster recovery. Here's what makes it work."
     },
     {
       "type": "color_scheme",
@@ -119,6 +148,7 @@
       "category": "t:categories.storytelling",
       "settings": {
         "heading": "What's in every cup",
+        "subheading": "Calm energy. Sharper focus. Faster recovery. Here's what makes it work.",
         "color_scheme": "scheme-8",
         "padding-block-start": 80,
         "padding-block-end": 80
@@ -161,7 +191,7 @@
           "settings": {
             "label": "Natural Detoxifier",
             "title": "Chlorophyll",
-            "description": "Supports the body's cleansing processes and helps reduce inflammation. What gives matcha its color."
+            "description": "Supports the body's natural recovery and helps reduce inflammation. What gives matcha its color."
           }
         },
         "vitamins": {
@@ -177,7 +207,7 @@
           "settings": {
             "label": "Key Minerals",
             "title": "Potassium, Magnesium, Zinc",
-            "description": "Critical for muscle function, nerve signaling, and post-workout recovery."
+            "description": "Critical for muscle function, nerve signaling, and faster recovery after training."
           }
         }
       },
