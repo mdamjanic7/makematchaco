@@ -52,12 +52,8 @@ class MatchaScrollAccordion extends HTMLElement {
 
     const index = parseInt(row.dataset.index || '0', 10);
 
-    // Clicking the already-active row on mobile collapses it
-    if (index === this.#activeIndex && window.innerWidth < 768) {
-      this.#collapseAll();
-      this.#activeIndex = -1;
-      return;
-    }
+    // Clicking the already-active row does nothing — one must always be open
+    if (index === this.#activeIndex) return;
 
     this.#setActiveRow(index);
   };
@@ -87,20 +83,6 @@ class MatchaScrollAccordion extends HTMLElement {
     }
   }
 
-  /** Collapses all rows. */
-  #collapseAll() {
-    for (const row of this.rows) {
-      row.classList.remove('scroll-accordion__row--active');
-      const header = row.querySelector('.scroll-accordion__row-header');
-      if (header) {
-        header.setAttribute('aria-expanded', 'false');
-      }
-    }
-
-    for (const item of this.mediaItems) {
-      item.classList.remove('scroll-accordion__media-item--active');
-    }
-  }
 }
 
 if (!customElements.get('matcha-scroll-accordion')) {
