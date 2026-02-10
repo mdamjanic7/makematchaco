@@ -1,10 +1,12 @@
-{%- comment -%}
+{% doc %}
   Matcha Grade Accordion
 
   Split layout: persistent image area on the left that crossfades between grade
-  images, and a click-to-expand accordion on the right. Supports transition
-  videos between products via metafields.
-{%- endcomment -%}
+  images, and a click-to-expand accordion on the right. No scroll hijacking.
+
+  @example
+  Used on the matcha-grades page template.
+{% enddoc %}
 
 <matcha-scroll-accordion
   class="scroll-accordion color-{{ section.settings.color_scheme }}"
@@ -15,7 +17,7 @@
   "
 >
   <div class="scroll-accordion__container section--page-width">
-    {%- comment -%} Left: image area — crossfading images + transition video overlay {%- endcomment -%}
+    {%- comment -%} Left: image area — all images stacked, only active one visible {%- endcomment -%}
     <div class="scroll-accordion__media" aria-hidden="true">
       {% for block in section.blocks %}
         {%- liquid
@@ -34,8 +36,7 @@
               | image_url: width: 900
               | image_tag:
                 class: 'scroll-accordion__image',
-                loading: 'eager',
-                fetchpriority: 'high',
+                loading: 'lazy',
                 widths: '400, 600, 900',
                 sizes: '(min-width: 768px) 45vw, 100vw',
                 alt: block.settings.heading
@@ -45,15 +46,6 @@
           {% endif %}
         </div>
       {% endfor %}
-
-      {%- comment -%} Shared video element for transition playback {%- endcomment -%}
-      <video
-        class="scroll-accordion__video"
-        muted
-        playsinline
-        preload="auto"
-        aria-hidden="true"
-      ></video>
     </div>
 
     {%- comment -%} Right: accordion rows {%- endcomment -%}
@@ -68,40 +60,12 @@
           if block.settings.link_text == blank and block.settings.product != blank
             assign row_link_text = 'Shop ' | append: block.settings.heading
           endif
-
-          assign row_product_id = ''
-          if block.settings.product != blank
-            assign row_product_id = block.settings.product.id
-            assign p = block.settings.product
-            assign t1_product = p.metafields.custom.transition_video_product_1.value
-            assign t1_file = p.metafields.custom.transition_video_file_1.value
-            assign t2_product = p.metafields.custom.transition_video_product_2.value
-            assign t2_file = p.metafields.custom.transition_video_file_2.value
-            assign t3_product = p.metafields.custom.transition_video_product_3.value
-            assign t3_file = p.metafields.custom.transition_video_file_3.value
-          endif
         -%}
         <div
           class="scroll-accordion__row{% if forloop.first %} scroll-accordion__row--active{% endif %}"
           {{ block.shopify_attributes }}
           role="listitem"
           data-index="{{ forloop.index0 }}"
-          {% if row_product_id != blank %}data-product-id="{{ row_product_id }}"{% endif %}
-          {% if block.settings.product != blank %}
-            data-transitions='{
-              {%- if t1_product != blank and t1_file != blank -%}
-                "{{ t1_product.id }}": "{{ t1_file.sources[0].url }}"
-                {%- if t2_product != blank and t2_file != blank -%},{%- endif -%}
-              {%- endif -%}
-              {%- if t2_product != blank and t2_file != blank -%}
-                "{{ t2_product.id }}": "{{ t2_file.sources[0].url }}"
-                {%- if t3_product != blank and t3_file != blank -%},{%- endif -%}
-              {%- endif -%}
-              {%- if t3_product != blank and t3_file != blank -%}
-                "{{ t3_product.id }}": "{{ t3_file.sources[0].url }}"
-              {%- endif -%}
-            }'
-          {% endif %}
           style="--row-accent: {{ block.settings.accent_color | default: '#999999' }};"
         >
           <button
@@ -232,25 +196,6 @@ matcha-scroll-accordion {
   height: 100%;
   background: rgb(var(--color-foreground-rgb) / 0.06);
   border-radius: 4px;
-}
-
-/* Video transition overlay
-   ========================================================================== */
-
-.scroll-accordion__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px;
-  opacity: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.scroll-accordion__video--playing {
-  opacity: 1;
 }
 
 /* Accordion rows
@@ -462,7 +407,6 @@ matcha-scroll-accordion {
 
 @media (prefers-reduced-motion: reduce) {
   .scroll-accordion__media-item,
-  .scroll-accordion__video,
   .scroll-accordion__row-content,
   .scroll-accordion__text,
   .scroll-accordion__row-indicator,
