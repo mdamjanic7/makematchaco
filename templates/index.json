@@ -520,186 +520,80 @@
         "padding-block-end": 48
       }
     },
-    "media_with_content_L3KHqL": {
-      "type": "media-with-content",
+    "ingredient_cards_section": {
+      "type": "ingredient-cards",
       "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "static": true,
+        "l_theanine": {
+          "type": "ingredient-card",
           "settings": {
-            "media_type": "image",
-            "image": "shopify://shop_images/Benefits2.jpg",
-            "link": "",
-            "video_loop": true,
-            "video_autoplay": false,
-            "image_position": "cover",
-            "video_position": "cover"
-          },
-          "blocks": {}
+            "label": "Amino Acid",
+            "title": "L-Theanine",
+            "description": "Calm, focused energy without the jitters. The reason matcha feels different from coffee."
+          }
         },
-        "content": {
-          "type": "_content-without-appearance",
-          "static": true,
+        "egcg": {
+          "type": "ingredient-card",
           "settings": {
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 63
-          },
-          "blocks": {
-            "group_34nnET": {
-              "type": "group",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "text_FHL6AL": {
-                  "type": "text",
-                  "name": "t:names.caption",
-                  "settings": {
-                    "text": "<p>Matcha Benefits</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "paragraph",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_r8kNNe": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<p>More than caffeine.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h3",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_8RfHh4": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<p>Sustained energy, a calmer focus, and loaded with antioxidants.</p>",
-                    "width": "fit-content",
-                    "max_width": "narrow",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "button_6CgExX": {
-                  "type": "button",
-                  "settings": {
-                    "label": "Shop Now",
-                    "link": "shopify://collections/all",
-                    "open_in_new_tab": false,
-                    "style_class": "button",
-                    "width": "fit-content",
-                    "custom_width": 100,
-                    "width_mobile": "fit-content",
-                    "custom_width_mobile": 100
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_FHL6AL",
-                "text_r8kNNe",
-                "text_8RfHh4",
-                "button_6CgExX"
-              ]
-            }
-          },
-          "block_order": [
-            "group_34nnET"
-          ]
+            "label": "Potent Antioxidant",
+            "title": "EGCG",
+            "description": "Supports cellular health and natural metabolism. One of the most studied compounds in green tea."
+          }
+        },
+        "catechins": {
+          "type": "ingredient-card",
+          "settings": {
+            "label": "Antioxidant Compounds",
+            "title": "Catechins",
+            "description": "A family of natural compounds that support immune function and cardiovascular health."
+          }
+        },
+        "polyphenols": {
+          "type": "ingredient-card",
+          "settings": {
+            "label": "Plant Antioxidants",
+            "title": "Polyphenols",
+            "description": "Help protect against oxidative stress and support overall well-being."
+          }
+        },
+        "chlorophyll": {
+          "type": "ingredient-card",
+          "settings": {
+            "label": "Natural Detoxifier",
+            "title": "Chlorophyll",
+            "description": "Supports the body's cleansing processes and helps reduce inflammation. What gives matcha its color."
+          }
+        },
+        "vitamins": {
+          "type": "ingredient-card",
+          "settings": {
+            "label": "Essential Vitamins",
+            "title": "Vitamins C, A, K, B-Complex",
+            "description": "A broad spectrum supporting immunity, vision, bone health, and sustained energy production."
+          }
+        },
+        "minerals": {
+          "type": "ingredient-card",
+          "settings": {
+            "label": "Key Minerals",
+            "title": "Potassium, Magnesium, Zinc",
+            "description": "Critical for muscle function, nerve signaling, and post-workout recovery."
+          }
         }
       },
-      "name": "t:names.editorial",
+      "block_order": [
+        "l_theanine",
+        "egcg",
+        "catechins",
+        "polyphenols",
+        "chlorophyll",
+        "vitamins",
+        "minerals"
+      ],
       "settings": {
-        "media_position": "left",
-        "media_width": "medium",
-        "media_height": "80svh",
-        "section_width": "full-width",
-        "extend_media": true,
+        "heading": "What's in every cup",
         "color_scheme": "scheme-1",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 80,
+        "padding-block-end": 80
       }
     },
     "marquee_9CGRDF": {
@@ -1145,7 +1039,7 @@
     "section_P7W6Rt",
     "hero_n9TR3N",
     "section_DRYfXR",
-    "media_with_content_L3KHqL",
+    "ingredient_cards_section",
     "marquee_9CGRDF",
     "section_DX9WEN",
     "hero_yGPUFw"

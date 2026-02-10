@@ -1,0 +1,131 @@
+{% doc %}
+  An ingredient card block for showcasing individual matcha ingredients.
+  Displays a category label, ingredient title, and description.
+  Designed to be used inside the ingredient-cards section.
+
+  @example
+  {% content_for 'block', type: 'ingredient-card', id: 'l-theanine' %}
+{% enddoc %}
+
+{% liquid
+  assign label = block.settings.label
+  assign title = block.settings.title
+  assign description = block.settings.description
+%}
+
+<div
+  class="ingredient-card"
+  {{ block.shopify_attributes }}
+>
+  {% if label != blank %}
+    <span class="ingredient-card__label">{{ label | escape }}</span>
+  {% endif %}
+
+  {% if title != blank %}
+    <h3 class="ingredient-card__title">{{ title | escape }}</h3>
+  {% endif %}
+
+  {% if description != blank %}
+    <p class="ingredient-card__description">{{ description | escape }}</p>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .ingredient-card {
+    --ingredient-card-padding: clamp(1.5rem, 4vw, 2.5rem);
+    --ingredient-card-width: 300px;
+    --ingredient-card-border-color: rgb(var(--color-foreground-rgb) / var(--opacity-10));
+
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: var(--gap-xs);
+    width: var(--ingredient-card-width);
+    padding: var(--ingredient-card-padding);
+    border: 1px solid var(--ingredient-card-border-color);
+    border-radius: var(--style-border-radius-medium, 8px);
+    scroll-snap-align: start;
+
+    @media screen and (max-width: 749px) {
+      --ingredient-card-width: 260px;
+    }
+  }
+
+  /* Animation states: only applied when JS adds the animate class to the section */
+  .ingredient-cards--animate .ingredient-card {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .ingredient-cards--animate .ingredient-card--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ingredient-cards--animate .ingredient-card {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .ingredient-card__label {
+    font-family: var(--font-subheading--family);
+    font-size: var(--font-size--3xs);
+    letter-spacing: var(--letter-spacing--body-loose);
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-rgb) / 0.6);
+  }
+
+  .ingredient-card__title {
+    font-family: var(--font-heading--family);
+    font-size: var(--font-size--h4);
+    line-height: var(--line-height--heading-tight);
+    letter-spacing: var(--letter-spacing--heading-tight);
+    color: rgb(var(--color-foreground-heading));
+    margin: 0;
+  }
+
+  .ingredient-card__description {
+    font-family: var(--font-body--family);
+    font-size: var(--font-size--paragraph);
+    line-height: var(--line-height--body-normal);
+    color: rgb(var(--color-foreground-rgb) / 0.75);
+    margin: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.ingredient_card",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "t:settings.label",
+      "default": "Category"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:settings.title",
+      "default": "Ingredient"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "t:settings.description",
+      "default": "A brief description of this ingredient and its benefits."
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.ingredient_card",
+      "category": "t:categories.basic"
+    }
+  ]
+}
+{% endschema %}
