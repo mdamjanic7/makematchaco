@@ -117,6 +117,30 @@ class IngredientCards extends Component {
     this.#track.style.cursor = '';
     this.#track.style.scrollSnapType = '';
   };
+
+  /* Arrow navigation */
+
+  scrollPrev() {
+    if (!this.#track) return;
+    const cardWidth = this.#getCardScrollDistance();
+    this.#track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+  }
+
+  scrollNext() {
+    if (!this.#track) return;
+    const cardWidth = this.#getCardScrollDistance();
+    this.#track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+  }
+
+  /** @returns {number} */
+  #getCardScrollDistance() {
+    const card = this.#track.querySelector('.ingredient-card');
+    if (!card) return 300;
+
+    const style = getComputedStyle(this.#track);
+    const gap = parseFloat(style.columnGap) || 0;
+    return card.offsetWidth + gap;
+  }
 }
 
 if (!customElements.get('ingredient-cards')) {

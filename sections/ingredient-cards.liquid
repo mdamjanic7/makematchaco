@@ -22,8 +22,33 @@
     </div>
   {% endif %}
 
-  <div class="ingredient-cards__track">
-    {% content_for 'blocks' %}
+  <div class="ingredient-cards__carousel">
+    <div class="ingredient-cards__track" ref="track">
+      {% content_for 'blocks' %}
+    </div>
+
+    <div class="ingredient-cards__arrows" ref="arrows">
+      <button
+        class="ingredient-cards__arrow ingredient-cards__arrow--prev"
+        aria-label="{{ 'accessibility.slideshow_previous' | t }}"
+        ref="prevBtn"
+        on:click="/scrollPrev"
+      >
+        <span class="ingredient-cards__arrow-icon flip-x">
+          {{- 'icon-arrow.svg' | inline_asset_content -}}
+        </span>
+      </button>
+      <button
+        class="ingredient-cards__arrow ingredient-cards__arrow--next"
+        aria-label="{{ 'accessibility.slideshow_next' | t }}"
+        ref="nextBtn"
+        on:click="/scrollNext"
+      >
+        <span class="ingredient-cards__arrow-icon">
+          {{- 'icon-arrow.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    </div>
   </div>
 </ingredient-cards>
 
@@ -85,6 +110,80 @@
 
   .ingredient-cards__track::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Carousel container for arrow positioning */
+  .ingredient-cards__carousel {
+    position: relative;
+  }
+
+  .ingredient-cards__arrows {
+    display: none;
+    position: absolute;
+    inset: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: var(--padding-xs);
+    pointer-events: none;
+
+    @media screen and (min-width: 750px) {
+      display: flex;
+    }
+  }
+
+  .ingredient-cards__carousel:hover .ingredient-cards__arrows,
+  .ingredient-cards__carousel:focus-within .ingredient-cards__arrows {
+    @media screen and (min-width: 750px) {
+      display: flex;
+    }
+  }
+
+  .ingredient-cards__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgb(var(--color-foreground-heading-rgb, 210, 245, 0) / 0.9);
+    color: rgb(var(--color-background-rgb));
+    cursor: pointer;
+    pointer-events: auto;
+    opacity: 0;
+    transition: opacity var(--animation-speed-fast) ease, transform var(--animation-speed-fast) ease;
+  }
+
+  .ingredient-cards__carousel:hover .ingredient-cards__arrow,
+  .ingredient-cards__carousel:focus-within .ingredient-cards__arrow {
+    opacity: 1;
+  }
+
+  .ingredient-cards__arrow:hover {
+    transform: scale(1.1);
+  }
+
+  .ingredient-cards__arrow:focus-visible {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: 2px;
+    opacity: 1;
+  }
+
+  .ingredient-cards__arrow-icon {
+    display: flex;
+    width: 20px;
+    height: 20px;
+  }
+
+  .ingredient-cards__arrow-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ingredient-cards__arrow {
+      transition: none;
+    }
   }
 {% endstylesheet %}
 
