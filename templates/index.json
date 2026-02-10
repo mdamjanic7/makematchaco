@@ -592,7 +592,7 @@
       "settings": {
         "heading": "What's in every cup",
         "subheading": "Calm energy. Sharper focus. Faster recovery. Here's what makes it work.",
-        "color_scheme": "scheme-8",
+        "color_scheme": "scheme-5",
         "padding-block-start": 80,
         "padding-block-end": 48
       }
@@ -632,7 +632,7 @@
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-4",
         "padding-block-start": 24,
         "padding-block-end": 24,
         "gap_between_elements": 24
