@@ -330,7 +330,7 @@
                 "text_tKr4Hy": {
                   "type": "text",
                   "settings": {
-                    "text": "<p></p><p></p><p>This is MAKE’s signature and highest grade matcha.</p><p>Heritage Grade is produced in limited quantities under the guidance of a level ten-dan tea master. It represents less than 2% of matcha produced worldwide that still follows traditional farming and processing methods.</p><p>We work directly with small, independent farms and pay premium prices for leaves that meet these exacting standards—often selecting only a fraction of each harvest. This level of care, time, and expertise results in a matcha with greater depth, sweetness, and balance—and explains its higher cost.</p><p></p><p></p><p></p><p></p><p></p><p></p>",
+                    "text": "<p></p><p></p><p>This is MAKE’s signature and highest grade matcha.</p><p>Heritage Grade is produced in limited quantities under the guidance of a level ten-dan tea master. It represents less than 2% of matcha produced worldwide that still follows traditional farming and processing methods. Exceptionally creamy, umami-rich, and slightly sweet, it has a vivid green color, full aroma, and totally refined texture. This level of care, time, and expertise results in a rare, complex matcha and explains its limited quantities and higher price point.</p><p></p><p></p><p></p><p></p><p></p><p></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -533,7 +533,7 @@
                 "text_fthHBD": {
                   "type": "text",
                   "settings": {
-                    "text": "<p><br/>This is MAKE's JAS Certified Organic matcha.<br/><br/>Imperial Grade is sourced from first spring harvest leaves grown without pesticides or synthetic fertilizers. </p><p>It offers a creamy umami profile with remarkable depth, alongside a vibrant green hue, clean aroma, and smooth finish.<br/><br/>Proving that organic doesn’t have to mean bitter when every step is done properly.</p>",
+                    "text": "<p><br/>This is MAKE's JAS Certified Organic matcha.<br/><br/>Imperial Grade is sourced from first spring harvest leaves that have been grown without pesticides or synthetic fertilizers. It offers a balanced creamy umami profile alongside a vibrant green, full aroma, and smooth finish. Proof that organic doesn’t have to mean bitter.  </p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -736,7 +736,7 @@
                 "text_enAUVR": {
                   "type": "text",
                   "settings": {
-                    "text": "<p><br/>This is MAKE's everyday matcha. <br/></p><p>Sourced from spring harvest leaves and shade-grown for four weeks, Ceremonial Grade is crafted for daily enjoyment and ritual. <br/><br/>Balanced umami, a bright green color, and a smooth, approachable flavor make it a pleasure to whisk each morning—whether prepared traditionally or mixed into lattes and other matcha drinks.</p>",
+                    "text": "<p><br/>This is MAKE's everyday matcha. <br/></p><p>Ceremonial Grade is sourced from spring harvest leaves that are shade-grown for up to four weeks. It has a balanced umami profile, bright green color, and a smooth, approachable flavor. Perfect for daily enjoyment, it can be prepared traditionally or mixed into lattes and other matcha drinks.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
