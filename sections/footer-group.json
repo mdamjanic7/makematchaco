@@ -14,6 +14,21 @@
     "footer_WnX4aJ": {
       "type": "footer",
       "blocks": {
+        "button_bUmdP6": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "FAQ",
+            "link": "/pages/faq",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
         "group_EJMKU9": {
           "type": "group",
           "name": "Menu links",
@@ -157,6 +172,7 @@
         }
       },
       "block_order": [
+        "button_bUmdP6",
         "group_EJMKU9",
         "email_signup_t3aAfi",
         "text_6Ch4dB"
