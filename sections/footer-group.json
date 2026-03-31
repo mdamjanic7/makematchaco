@@ -19,7 +19,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "FAQ",
-            "link": "shopify://pages/frequently-asked-questions",
+            "link": "shopify://pages/faq",
             "open_in_new_tab": false,
             "style_class": "button",
             "width": "fit-content",
