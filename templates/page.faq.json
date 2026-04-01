@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>Not all matcha is created equal</h2>",
+            "text": "<h2>FAQ</h2>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
