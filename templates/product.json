@@ -529,7 +529,7 @@
                 "text_iJDanD": {
                   "type": "text",
                   "settings": {
-                    "text": "<p><strong>Heritage Grade:</strong><br/>This is MAKE's signature and highest grade matcha. <br/><br/><strong>Imperial Grade:</strong><br/>This is MAKE's JAS certified Organic matcha. <br/><br/><strong>Ceremonial Grade:</strong><br/>This is MAKE's everyday matcha. </p>",
+                    "text": "<h5><strong>Heritage Grade<br/></strong><br/>This is MAKE's signature and highest grade matcha. <br/><br/><strong>Imperial Grade:<br/></strong><br/>This is MAKE's JAS certified Organic matcha. <br/><br/><strong>Ceremonial Grade:<br/></strong><br/>This is MAKE's everyday matcha. </h5>",
                     "width": "100%",
                     "max_width": "narrow",
                     "alignment": "left",
