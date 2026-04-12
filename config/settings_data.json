@@ -28,7 +28,7 @@
     "type_case_h4": "none",
     "type_size_h5": "14",
     "type_case_h5": "none",
-    "type_case_h6": "uppercase",
+    "type_case_h6": "none",
     "page_width": "normal",
     "card_hover_effect": "none",
     "badge_position": "bottom-left",
@@ -57,11 +57,6 @@
       },
       "6468128024931565999": {
         "type": "shopify://apps/seguno-popups/blocks/popup-app-embed/f53bd66f-9a20-4ce2-ae2e-ccbd0148bd4b",
-        "disabled": false,
-        "settings": {}
-      },
-      "pagefly-page-builder": {
-        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
         "disabled": false,
         "settings": {}
       }

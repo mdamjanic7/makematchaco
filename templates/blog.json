@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "main-blog",
@@ -15,11 +16,11 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>{{ closest.blog.title }}</h1>",
-            "width": "fit-content",
-            "max_width": "narrow",
+            "text": "<h6><strong>Matcha 101 </strong></h6><h6>Matcha Grades: A New Lens</h6><h6></h6><h6></h6><h6>Most matcha is labeled \"ceremonial\" or \"culinary\" but those terms don’t really explain quality or taste. What actually matters is how the matcha is grown. Its origin, cultivar, harvest, how its processed.</h6><p>For example, matcha from Uji is known for a softer, sweeter, more refined profile—not because of branding, but because of the the cultivar (parent plant), the terroir (minerals and nutrients found in the soils), the climate (the amount of rainfall and sunshine), even the topography (the mountains that shield the growing plants from wind and storms).</p><p><br/>To make choosing easier for you, we've graded our matcha using qualities like where is it from and how was it grown. </p><p><br/></p><p>Our Matcha Grades:</p><p>Heritage: Single origin from Uji, Japan. The region best know for tradition and taste. Our Heritage Grade is not only always first spring harvest, it is only harvested once a year so the plant has a lot of time to rest throughout the rest of the year. Traditional processing practices like shade growing, hand-picking and stone grinding result in a silky smooth, sweet, and umami profile. Our most refined matcha for the matcha connoisseur. </p><p><br/>Imperial: Kagoshima, Japan. An newer region that has mastered the practice of growing JAS certified organic matcha.  Grown without the use of fertilizers or pesticides, our Imperial Grade is always first spring harvest and shade grown. The results is a balanced, bright flavor profile that is also organic. A daily luxury for any matcha lover. </p><p><br/>Ceremonial: Shizuoka, Japan. A fast growing region producing high volumes of quality matcha. Our Ceremonial uses some modern processing techniques to meet demand, but it is always first spring harvest and shade grown. The results is a strong, bold flavor that mixes well in lattes and other flavored drinks. Our everyday matcha for your first real experience. <br/></p><p><br/></p><p>Learn more about our grades and stay tuned for more Matcha 101. Next up. <strong>Why shading changes everything.</strong></p><h6></h6><h6></h6>",
+            "width": "100%",
+            "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h2",
+            "type_preset": "h6",
             "font": "var(--font-body--family)",
             "font_size": "",
             "line_height": "normal",
@@ -32,6 +33,29 @@
             "corner_radius": 0,
             "padding-block-start": 48,
             "padding-block-end": 48,
+            "padding-inline-start": 48,
+            "padding-inline-end": 48
+          },
+          "blocks": {}
+        },
+        "image_zfJcQ9": {
+          "type": "image",
+          "name": "t:names.image",
+          "settings": {
+            "image": "shopify://shop_images/MAKE_Matcha_Homepage_Premium_matcha_how_to_make_matcha_e47e1746-5f73-474f-bb10-a168510e4fbf.jpg",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -44,6 +68,18 @@
             "alignment": "left"
           },
           "blocks": {
+            "image": {
+              "type": "_blog-post-image",
+              "static": true,
+              "settings": {
+                "height": "medium",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0
+              },
+              "blocks": {}
+            },
             "heading": {
               "type": "_heading",
               "name": "t:names.title",
@@ -83,15 +119,20 @@
               },
               "blocks": {}
             },
-            "image": {
-              "type": "_blog-post-image",
+            "content": {
+              "type": "_blog-post-description",
               "static": true,
               "settings": {
-                "height": "medium",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 16,
+                "padding-block-end": 0
               },
               "blocks": {}
             }
@@ -100,7 +141,8 @@
         }
       },
       "block_order": [
-        "title"
+        "title",
+        "image_zfJcQ9"
       ],
       "settings": {
         "color_scheme": "scheme-1",
