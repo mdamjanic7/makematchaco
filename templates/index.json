@@ -708,7 +708,7 @@
         "text_T8fFMR": {
           "type": "text",
           "settings": {
-            "text": "<p>Free Shipping on Subscriptions Refills • Free Shipping on Subscription Refills •</p>",
+            "text": "<p>Free Shipping on Subscriptions • Free Shipping on Subscriptionss •</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
