@@ -1164,7 +1164,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/Hojicha_Premium_matcha_tea_refill_image_2_49afdeee-6666-4403-a940-4045cecfb74f.jpg",
+            "image": "shopify://shop_images/Hojicha_Premium_matcha_tea_refill_image_4_bfeca5ee-d690-4781-975b-0583a97244b8.jpg",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -1569,7 +1569,6 @@
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
         "media_type_1_mobile": "image",
-        "image_1_mobile": "shopify://shop_images/Mobile_Second_Make_Matcha_Premium_Homepage.jpg",
         "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
