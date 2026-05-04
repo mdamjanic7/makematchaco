@@ -27,19 +27,6 @@
           },
           "blocks": {}
         },
-        "announcement_XMmFbL": {
-          "type": "_announcement",
-          "settings": {
-            "text": "Save 15% with a monthly subscription 🌱",
-            "link": "",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "normal",
-            "case": "none"
-          },
-          "blocks": {}
-        },
         "announcement_LGxFEg": {
           "type": "_announcement",
           "settings": {
@@ -56,7 +43,6 @@
       },
       "block_order": [
         "announcement_6Rgjam",
-        "announcement_XMmFbL",
         "announcement_LGxFEg"
       ],
       "custom_css": [
