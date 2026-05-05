@@ -27,15 +27,15 @@
           },
           "blocks": {}
         },
-        "announcement_LGxFEg": {
+        "announcement_iDrW39": {
           "type": "_announcement",
           "settings": {
-            "text": "Save 15% with a monthly subscription 🌱",
-            "link": "shopify://products/make-heritage-matcha-refill",
+            "text": "FREE Shipping on all Subscriptions",
+            "link": "",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
-            "weight": "400",
-            "letter_spacing": "loose",
+            "weight": "",
+            "letter_spacing": "normal",
             "case": "none"
           },
           "blocks": {}
@@ -43,7 +43,7 @@
       },
       "block_order": [
         "announcement_6Rgjam",
-        "announcement_LGxFEg"
+        "announcement_iDrW39"
       ],
       "custom_css": [
         ".slideshow-control,.slideshow-control--next,.slideshow-control--prev {display: none !important;}"
