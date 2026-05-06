@@ -30,8 +30,8 @@
         "announcement_iDrW39": {
           "type": "_announcement",
           "settings": {
-            "text": "FREE Shipping on all Subscriptions",
-            "link": "",
+            "text": "Save 15% with a monthly subscription 🌱",
+            "link": "shopify://products/make-heritage-matcha-refill",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
             "weight": "",
