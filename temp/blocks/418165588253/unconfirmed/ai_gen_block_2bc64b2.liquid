@@ -1,6 +1,576 @@
+{% doc %}
+  @prompt
+    A magazine-style editorial layout
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-editorial-layout-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding }}px;
+  }
+
+  .ai-editorial-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: {{ block.settings.grid_gap }}px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .ai-editorial-feature-{{ ai_gen_id }} {
+    grid-column: span 8;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-editorial-feature-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 3 / 4;
+  }
+
+  .ai-editorial-feature-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 3 / 4;
+    position: relative;
+  }
+
+  .ai-editorial-feature-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .ai-editorial-feature-content-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: {{ block.settings.content_padding }}px;
+    background: linear-gradient(to top, rgba(0, 0, 0, {{ block.settings.overlay_opacity }}), transparent);
+    color: {{ block.settings.feature_text_color }};
+  }
+
+  .ai-editorial-feature-category-{{ ai_gen_id }} {
+    font-size: {{ block.settings.category_size }}px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .ai-editorial-feature-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.feature_title_size }}px;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    font-weight: 700;
+  }
+
+  .ai-editorial-feature-excerpt-{{ ai_gen_id }} {
+    font-size: {{ block.settings.excerpt_size }}px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .ai-editorial-sidebar-{{ ai_gen_id }} {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.grid_gap }}px;
+  }
+
+  .ai-editorial-card-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-editorial-card-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 4 / 3;
+  }
+
+  .ai-editorial-card-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+  }
+
+  .ai-editorial-card-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .ai-editorial-card-content-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: {{ block.settings.card_padding }}px;
+    background: linear-gradient(to top, rgba(0, 0, 0, {{ block.settings.overlay_opacity }}), transparent);
+    color: {{ block.settings.card_text_color }};
+  }
+
+  .ai-editorial-card-category-{{ ai_gen_id }} {
+    font-size: {{ block.settings.card_category_size }}px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  .ai-editorial-card-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.card_title_size }}px;
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .ai-editorial-link-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .ai-editorial-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-editorial-feature-{{ ai_gen_id }} {
+      grid-column: span 12;
+    }
+
+    .ai-editorial-sidebar-{{ ai_gen_id }} {
+      grid-column: span 12;
+      flex-direction: row;
+    }
+
+    .ai-editorial-card-{{ ai_gen_id }} {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-editorial-layout-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding | times: 0.5 }}px;
+    }
+
+    .ai-editorial-grid-{{ ai_gen_id }} {
+      gap: {{ block.settings.grid_gap | times: 0.5 }}px;
+    }
+
+    .ai-editorial-sidebar-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: {{ block.settings.grid_gap | times: 0.5 }}px;
+    }
+
+    .ai-editorial-feature-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.feature_title_size | times: 0.7 }}px;
+    }
+
+    .ai-editorial-card-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.card_title_size | times: 0.85 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-editorial-layout-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-editorial-grid-{{ ai_gen_id }}">
+    <article class="ai-editorial-feature-{{ ai_gen_id }}">
+      {% if block.settings.feature_image %}
+        <img
+          src="{{ block.settings.feature_image | image_url: width: 1200 }}"
+          alt="{{ block.settings.feature_image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.feature_image.width }}"
+          height="{{ block.settings.feature_image.height }}"
+          class="ai-editorial-feature-image-{{ ai_gen_id }}"
+        >
+      {% else %}
+        <div class="ai-editorial-feature-placeholder-{{ ai_gen_id }}">
+          {{ 'hero-apparel-1' | placeholder_svg_tag }}
+          <div class="ai-editorial-empty-state-{{ ai_gen_id }}">
+            Add a feature image
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="ai-editorial-feature-content-{{ ai_gen_id }}">
+        {% if block.settings.feature_category != blank %}
+          <div class="ai-editorial-feature-category-{{ ai_gen_id }}">
+            {{ block.settings.feature_category }}
+          </div>
+        {% endif %}
+
+        {% if block.settings.feature_title != blank %}
+          <h2 class="ai-editorial-feature-title-{{ ai_gen_id }}">
+            {{ block.settings.feature_title }}
+          </h2>
+        {% endif %}
+
+        {% if block.settings.feature_excerpt != blank %}
+          <p class="ai-editorial-feature-excerpt-{{ ai_gen_id }}">
+            {{ block.settings.feature_excerpt }}
+          </p>
+        {% endif %}
+      </div>
+
+      {% if block.settings.feature_link != blank %}
+        <a
+          href="{{ block.settings.feature_link }}"
+          class="ai-editorial-link-{{ ai_gen_id }}"
+          aria-label="{{ block.settings.feature_title | escape }}"
+        ></a>
+      {% endif %}
+    </article>
+
+    <aside class="ai-editorial-sidebar-{{ ai_gen_id }}">
+      {% for i in (1..3) %}
+        {% liquid
+          assign card_image_key = 'card_' | append: i | append: '_image'
+          assign card_category_key = 'card_' | append: i | append: '_category'
+          assign card_title_key = 'card_' | append: i | append: '_title'
+          assign card_link_key = 'card_' | append: i | append: '_link'
+
+          assign card_image = block.settings[card_image_key]
+          assign card_category = block.settings[card_category_key]
+          assign card_title = block.settings[card_title_key]
+          assign card_link = block.settings[card_link_key]
+        %}
+
+        <article class="ai-editorial-card-{{ ai_gen_id }}">
+          {% if card_image %}
+            <img
+              src="{{ card_image | image_url: width: 600 }}"
+              alt="{{ card_image.alt | escape }}"
+              loading="lazy"
+              width="{{ card_image.width }}"
+              height="{{ card_image.height }}"
+              class="ai-editorial-card-image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-editorial-card-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+
+          <div class="ai-editorial-card-content-{{ ai_gen_id }}">
+            {% if card_category != blank %}
+              <div class="ai-editorial-card-category-{{ ai_gen_id }}">
+                {{ card_category }}
+              </div>
+            {% endif %}
+
+            {% if card_title != blank %}
+              <h3 class="ai-editorial-card-title-{{ ai_gen_id }}">
+                {{ card_title }}
+              </h3>
+            {% endif %}
+          </div>
+
+          {% if card_link != blank %}
+            <a
+              href="{{ card_link }}"
+              class="ai-editorial-link-{{ ai_gen_id }}"
+              aria-label="{{ card_title | escape }}"
+            ></a>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </aside>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Magazine editorial layout",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Grid gap",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Feature article"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "feature_category",
+      "label": "Category",
+      "default": "Featured"
+    },
+    {
+      "type": "text",
+      "id": "feature_title",
+      "label": "Title",
+      "default": "The Art of Mindful Living"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_excerpt",
+      "label": "Excerpt",
+      "default": "Discover how small daily rituals can transform your relationship with tea and create moments of peace in a busy world."
+    },
+    {
+      "type": "url",
+      "id": "feature_link",
+      "label": "Link"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "label": "Content padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.7
+    },
+    {
+      "type": "color",
+      "id": "feature_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "category_size",
+      "label": "Category size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "feature_title_size",
+      "label": "Title size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "excerpt_size",
+      "label": "Excerpt size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Card 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_1_category",
+      "label": "Category",
+      "default": "Culture"
+    },
+    {
+      "type": "text",
+      "id": "card_1_title",
+      "label": "Title",
+      "default": "Tea Ceremonies Around the World"
+    },
+    {
+      "type": "url",
+      "id": "card_1_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Card 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_2_category",
+      "label": "Category",
+      "default": "Wellness"
+    },
+    {
+      "type": "text",
+      "id": "card_2_title",
+      "label": "Title",
+      "default": "Health Benefits of Matcha"
+    },
+    {
+      "type": "url",
+      "id": "card_2_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Card 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_3_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_3_category",
+      "label": "Category",
+      "default": "Recipes"
+    },
+    {
+      "type": "text",
+      "id": "card_3_title",
+      "label": "Title",
+      "default": "5 Creative Matcha Recipes"
+    },
+    {
+      "type": "url",
+      "id": "card_3_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Content padding",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_category_size",
+      "label": "Category size",
+      "min": 8,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Title size",
+      "min": 14,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    }
+  ],
+  "presets": [
+    {
+      "name": "Magazine editorial layout"
+    }
+  ]
+}
 {% endschema %}
