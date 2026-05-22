@@ -31,7 +31,7 @@
         "announcement_6Rgjam": {
           "type": "_announcement",
           "settings": {
-            "text": "FREE Shipping on all Orders Over $100 USD",
+            "text": "FREE shipping on all orders over $100 USD",
             "link": "",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
