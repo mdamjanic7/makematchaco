@@ -96,8 +96,8 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p><strong>MAKE Matcha Co.<br/>Premium Matcha & Hojicha from Japan</strong></p>",
-                    "width": "fit-content",
+                    "text": "<p><strong>MAKE Matcha Co.<br/>Make better matcha at home.</strong></p>",
+                    "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
