@@ -281,7 +281,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>We work with a level-10 tea master to source exceptional matcha and hojicha to make at home. This is not another white-label brand.</p><p><strong>Explore our grades and find the best matcha for you</strong>. </p>",
+            "text": "<p>We work with a level-10 tea master to source exceptional matcha and hojicha to make. This isn’t the kind of matcha you’ll typically find in a café. Tea of this quality is produced in limited quantities, commands a premium, and is simply too precious to prepare at café scale.<br/><br/></p><p><strong>Explore our grades and find the best matcha for you</strong>. </p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "center",
