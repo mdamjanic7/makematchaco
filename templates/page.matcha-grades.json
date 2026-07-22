@@ -141,7 +141,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Read below to learn more indepth about our grades.</p>",
+            "text": "<p>Make better matcha at home. See what grade is right for you:</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
