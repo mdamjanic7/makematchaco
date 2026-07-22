@@ -255,7 +255,7 @@
         "text_jthFXW": {
           "type": "text",
           "settings": {
-            "text": "<p>Exceptional Japanese matcha too rare to prepare at café scale.</p>",
+            "text": "<p>Exceptional Japanese matcha too rare to prepare at café scale</p>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "center",
