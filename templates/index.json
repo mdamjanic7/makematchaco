@@ -96,7 +96,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p><strong>MAKE Matcha Co.<br/>Make better matcha at home.</strong></p>",
+                    "text": "<p><strong>MAKE Matcha Co.<br/></strong>Exceptional Japanese matcha too rare to prepare at café scale.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
