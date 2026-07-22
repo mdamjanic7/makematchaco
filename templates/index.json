@@ -96,7 +96,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p><strong>MAKE Matcha Co.<br/></strong>Exceptional Japanese matcha too rare to prepare at café scale.</p>",
+                    "text": "<p><strong>MAKE Matcha Co.<br/></strong>Make Better Matcha at Home. <br/></p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -255,7 +255,7 @@
         "text_jthFXW": {
           "type": "text",
           "settings": {
-            "text": "<p>Traditionally farmed, small-batch matcha.</p>",
+            "text": "<p>Exceptional Japanese matcha too rare to prepare at café scale.</p>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "center",
@@ -281,7 +281,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>We work with a level-10 tea master to source exceptional matcha and hojicha to make at home. This isn’t the kind of matcha you’ll typically find in a café. Tea of this quality is produced in limited quantities, commands a premium, and is simply too precious to prepare at café scale.<br/><br/></p><p><strong>Explore our grades and find the best matcha for you</strong>. </p>",
+            "text": "<p>We work with a level-10 tea master to source exceptional matcha and hojicha to make at home. This isn’t the kind of matcha you’ll typically find in a café. Tea of this quality is produced in limited quantities, commands a premium, and is simply too precious to prepare at café scale.<br/></p><p><strong>Explore our grades and find the best matcha for you</strong>. </p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "center",
@@ -528,7 +528,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/Benefits2.jpg",
+            "image": "shopify://shop_images/FullSizeRender-2_copy.jpg",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -589,7 +589,7 @@
                   "type": "text",
                   "name": "t:names.caption",
                   "settings": {
-                    "text": "<p>Matcha Benefits</p>",
+                    "text": "<p>MAKE's Commitment</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -615,7 +615,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>More than caffeine.</p>",
+                    "text": "<p>Traditionally farmed, small batch </p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -640,7 +640,7 @@
                 "text_8RfHh4": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Sustained energy, a calmer focus, and loaded with antioxidants.</p>",
+                    "text": "<p>✓ First harvest</p><p>✓ Stone ground</p><p>✓ Small farms</p><p>✓ Level-10 Tea Master</p><p>✓ No white-label sourcing</p>",
                     "width": "fit-content",
                     "max_width": "narrow",
                     "alignment": "left",
