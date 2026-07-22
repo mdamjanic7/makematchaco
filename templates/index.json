@@ -816,7 +816,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p>We were tired of overpaying for mediocre café matcha. Working directly with our tea master and farmers allows us to source exceptional matcha to make at home.</p><p><a href=\"/pages/our-matcha-grades\" title=\"Our Matcha Grades\">Our Matcha Grades</a></p>",
+                "text": "<p>We created MAKE after discovering that truly exceptional matcha almost never leaves Japan. Working directly with our tea master and farmers allows us to source exceptional matcha to make at home.</p><p><a href=\"/pages/our-matcha-grades\" title=\"Our Matcha Grades\">Our Matcha Grades</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -888,7 +888,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Monthly <br/>Subscriptions</h2>",
+                "text": "<h2>MAKE <br/>Membership</h2><h2></h2>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -914,7 +914,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p>Reduce the number of tins you use and save 15% when you subscribe to MAKE's matcha or hojicha monthly refills—reliable, consistent, plus always free shipping. <br/><br/>Pause or cancel anytime.</p>",
+                "text": "<p>✓ Exclusive recipes<br/>✓ Collectible cards<br/>✓ Early releases<br/>✓ Free shipping<br/>✓ Event access<br/>✓ 15% savings<br/><br/>Pause or cancel anytime.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
