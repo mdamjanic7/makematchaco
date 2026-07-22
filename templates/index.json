@@ -615,7 +615,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>Traditionally farmed, small batch </p>",
+                    "text": "<p>Traditionally farmed, small batch matcha.</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
