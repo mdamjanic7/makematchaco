@@ -914,7 +914,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p>✓ Exclusive recipes<br/>✓ Collectible cards<br/>✓ Early releases<br/>✓ Free shipping<br/>✓ Event access<br/>✓ 15% savings<br/><br/>Pause or cancel anytime.</p>",
+                "text": "<p>✓ MAKE matcha delivered monthly<br/>✓ Exclusive recipes<br/>✓ Collectible cards<br/>✓ Early releases<br/>✓ Free shipping<br/>✓ Event access<br/>✓ 15% savings<br/><br/>Pause or cancel anytime.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
