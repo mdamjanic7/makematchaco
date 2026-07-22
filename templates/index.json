@@ -447,7 +447,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Our<strong> Heritage Grade</strong> is exclusively first spring harvested leaves, grown and ground using traditional methods.</p><p>Heritage Grade matcha is among the less than 2% of matcha sold worldwide that adheres to traditional cultivation and production method. The result is a rich, balanced flavor that is subtly sweet. <br/></p>",
+            "text": "<p>Our<strong> Heritage Grade</strong> is exclusively first spring harvested leaves, grown and produced using traditional methods.</p><p>Less than 2% of matcha sold worldwide meet these standards. The result is a rich, balanced flavor that is subtly sweet. <br/></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
