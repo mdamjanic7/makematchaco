@@ -122,7 +122,7 @@
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
-                    "label": "Shop Now",
+                    "label": "Shop Matcha",
                     "link": "shopify://collections/best-selling-products",
                     "open_in_new_tab": false,
                     "style_class": "button",
@@ -306,7 +306,7 @@
         "button_NdGrrw": {
           "type": "button",
           "settings": {
-            "label": "Shop All",
+            "label": "Find Your Grade",
             "link": "shopify://collections/best-selling-products",
             "open_in_new_tab": false,
             "style_class": "button",
