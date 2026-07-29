@@ -665,8 +665,8 @@
                 "button_6CgExX": {
                   "type": "button",
                   "settings": {
-                    "label": "About MAKE",
-                    "link": "shopify://pages/new-about-us",
+                    "label": "Shop Matcha",
+                    "link": "shopify://collections/all",
                     "open_in_new_tab": false,
                     "style_class": "button",
                     "width": "fit-content",
@@ -816,7 +816,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p>We created MAKE after discovering that truly exquisite matcha almost never leaves Japan. Working directly with our tea master and farmers allows us to source exceptional matcha to make at home.</p><p><a href=\"/pages/our-matcha-grades\" title=\"Our Matcha Grades\">Our Matcha Grades</a></p>",
+                "text": "<p>We created MAKE after discovering that truly exquisite matcha almost never leaves Japan. Working directly with our tea master and farmers allows us to source exceptional matcha to make at home.</p><p><a href=\"/pages/our-matcha-grades\" title=\"Our Matcha Grades\">About MAKE</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -940,7 +940,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p><a href=\"/products/make-30g-imperial-matcha-refill\" title=\"MAKE Imperial Matcha Refill\">Shop Subscriptions</a></p>",
+                "text": "<p><a href=\"/products/make-30g-imperial-matcha-refill\" title=\"MAKE Imperial Matcha Refill\">Shop Memberships</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -1039,7 +1039,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p>Our teas are sourced from small farms in Japan where quality is prioritized over yield. Each batch is harvested, processed, and evaluated with intention—because matcha this good can’t be rushed.</p><p><a href=\"/pages/education\" title=\"Education\">Learn More</a></p>",
+                "text": "<p>Our teas are sourced from small farms in Japan where quality is prioritized over yield. Each batch is harvested, processed, and evaluated with intention—because matcha this good can’t be rushed.</p><p><a href=\"/pages/education\" title=\"Education\">Our Matcha Grades</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
