@@ -146,7 +146,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                
+                "custom_liquid": ""
               },
               "blocks": {}
             },
