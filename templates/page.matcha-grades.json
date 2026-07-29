@@ -997,11 +997,11 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p><a href=\"/products/make-hojicha\" title=\"MAKE Hojicha | 30g\">Shop Hojicha</a></p>",
+                "text": "<p><a href=\"/products/make-30g-ceremonial-premium-matcha-refill\" title=\"MAKE Ceremonial Matcha Refill\"><strong>Shop Hojicha</strong></a></p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
