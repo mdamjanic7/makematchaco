@@ -527,7 +527,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/Make_Base_Hojicha_5b4366c6-b332-42d9-a3b9-20f4833dd459.jpg",
+            "image": "shopify://shop_images/hero_a.jpg",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
