@@ -1134,7 +1134,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>The truth is, matcha grades aren’t regulated by any governing body, nor are they standardized across the industry. They’ve emerged as shorthand marketing language, often applied inconsistently from one brand to the next. </p><p>At MAKE, our grades aren’t arbitrary labels, they reflect real differences in farming, harvesting, and production methods. </p><p>Regardless of the grade, every matcha we offer is vibrant, balanced, and delicious—and better than anything you'd find at a cafe, we promise.</p>",
+                    "text": "<p>The truth is, matcha grades aren’t regulated by any governing body, nor are they standardized across the industry. They’ve emerged as shorthand marketing language, often applied inconsistently from one brand to the next. </p><p>At MAKE, our grades are not arbitrary labels. They reflect real differences in farming, harvesting, and production methods.</p><p>Regardless of the grade, every matcha we offer is vibrant, balanced, and delicious—and better than anything you'd find at a cafe, we promise.</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
