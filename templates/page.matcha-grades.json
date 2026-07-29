@@ -853,7 +853,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/Hojicha_PDP.jpg",
+            "image": "shopify://shop_images/Hojicha_Premium_matcha_tea_refill_image_4_bfeca5ee-d690-4781-975b-0583a97244b8.jpg",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -871,6 +871,32 @@
             "gap": 24
           },
           "blocks": {
+            "text_G9A8GT": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<p><strong>Origin: Shizouka, Japan</strong></p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "group_nNExVB": {
               "type": "group",
               "settings": {
@@ -914,7 +940,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>How  we source our tea</p>",
+                    "text": "<p>Hojicha</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -939,7 +965,7 @@
                 "text_iBeMCF": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Guided by a level 10-dan tea master, MAKE works closely with small, independent farms. These long-standing relationships allow for limited harvests, careful processing, and a level of attention mass-produced matcha simply can’t replicate. Every decision favors integrity over scale.</p>",
+                    "text": "<p>This is MAKE's Hojicha. <br/><br/>Our Hoijcha is sourced from spring tea leaves that are lightly roasted after harvesting. The result is a nutty, toasted flavor that is mildly umami and slightly sweet. This golden and aromatic tea is smooth, mellow, and because of the lower caffeine content, is easy to enjoy any time of day.</p><p></p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -971,7 +997,7 @@
               "type": "button",
               "settings": {
                 "label": "Shop Now",
-                "link": "shopify://collections/best-selling-products",
+                "link": "shopify://products/make-hojicha",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
@@ -983,6 +1009,7 @@
             }
           },
           "block_order": [
+            "text_G9A8GT",
             "group_nNExVB",
             "button_aDmYHQ"
           ]
@@ -1164,7 +1191,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/Hojicha_Premium_matcha_tea_refill_image_4_bfeca5ee-d690-4781-975b-0583a97244b8.jpg",
+            "image": "shopify://shop_images/Hojicha_PDP_d032edac-fc45-4197-b058-1521904808ea.jpg",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -1251,7 +1278,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h2>Hojicha</h2>",
+                    "text": "<p>How  we source our tea</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1302,7 +1329,7 @@
                 "text_R3yC83": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>This is MAKE's Hojicha matcha. <br/><br/>Our Hoijcha is sourced from spring tea leaves that are lightly roasted after harvesting. The result is a nutty, toasted flavor that is mildly umami and slightly sweet. This golden and aromatic tea is smooth, mellow, and because of the lower caffeine content, is easy to enjoy any time of day.</p>",
+                    "text": "<p>Guided by a level 10-dan tea master, MAKE works closely with small, independent farms. These long-standing relationships allow for limited harvests, careful processing, and a level of attention mass-produced matcha simply can’t replicate. Every decision favors integrity over scale.</p>",
                     "width": "fit-content",
                     "max_width": "narrow",
                     "alignment": "left",
