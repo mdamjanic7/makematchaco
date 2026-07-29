@@ -1034,7 +1034,7 @@
         "media_height": "80svh",
         "section_width": "full-width",
         "extend_media": true,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -1190,7 +1190,7 @@
         "media_height": "80svh",
         "section_width": "page-width",
         "extend_media": true,
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
