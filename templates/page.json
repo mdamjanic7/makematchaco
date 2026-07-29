@@ -103,7 +103,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/hero_a.jpg",
+        "image_1": "shopify://shop_images/MAKE_Matcha_Co_Imperial_Grade_Matcha_in_bowl.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
@@ -141,7 +141,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Read below to learn more indepth about our grades.</p>",
+            "text": "<p>MAKE Better Matcha at Home</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
