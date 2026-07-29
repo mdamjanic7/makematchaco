@@ -473,7 +473,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Shop Now",
+            "label": "Shop Matcha",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
@@ -665,8 +665,8 @@
                 "button_6CgExX": {
                   "type": "button",
                   "settings": {
-                    "label": "Shop Now",
-                    "link": "shopify://collections/all",
+                    "label": "About MAKE",
+                    "link": "shopify://pages/new-about-us",
                     "open_in_new_tab": false,
                     "style_class": "button",
                     "width": "fit-content",
