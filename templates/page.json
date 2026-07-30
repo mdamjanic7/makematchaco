@@ -353,7 +353,7 @@
       },
       "name": "t:names.editorial",
       "settings": {
-        "media_position": "left",
+        "media_position": "right",
         "media_width": "medium",
         "media_height": "80svh",
         "section_width": "full-width",
@@ -509,7 +509,7 @@
       },
       "name": "t:names.editorial",
       "settings": {
-        "media_position": "right",
+        "media_position": "left",
         "media_width": "medium",
         "media_height": "80svh",
         "section_width": "page-width",
@@ -676,7 +676,7 @@
       },
       "name": "t:names.editorial",
       "settings": {
-        "media_position": "left",
+        "media_position": "right",
         "media_width": "medium",
         "media_height": "60svh",
         "section_width": "page-width",
