@@ -1039,7 +1039,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p>Our teas are sourced from small farms in Japan where quality is prioritized over yield. Each batch is harvested, processed, and evaluated with intention—because matcha this good can’t be rushed.</p><p><a href=\"/pages/education\" title=\"Education\">Our Matcha Grades</a></p>",
+                "text": "<p>Our teas are sourced from small farms in Japan where quality is prioritized over yield. Each batch is harvested, processed, and evaluated with intention—because matcha this good can’t be rushed.</p><p><a href=\"/pages/our-matcha-grades\" title=\"Our Matcha Grades\">Our Matcha Grades</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
