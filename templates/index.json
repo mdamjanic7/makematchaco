@@ -940,7 +940,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p><a href=\"/products/make-30g-imperial-matcha-refill\" title=\"MAKE Imperial Matcha Refill\">Shop Memberships</a></p>",
+                "text": "<p><a href=\"/collections/subscriptions\" title=\"Memberships\">Shop Memberships</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
