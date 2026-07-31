@@ -45,7 +45,7 @@
             "text": "<p>Receive your favorite matcha monthly, along with member pricing, complimentary shipping, and exclusive benefits.</p>",
             "width": "100%",
             "max_width": "none",
-            "alignment": "center",
+            "alignment": "left",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
