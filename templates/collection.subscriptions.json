@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h4>Membership</h4>",
+            "text": "<h4>Memberships</h4>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "",
+            "text": "<p>Receive your favorite matcha monthly, along with member pricing, complimentary shipping, and exclusive benefits.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -71,7 +71,7 @@
       ],
       "name": "t:names.rich_text_section",
       "settings": {
-        "content_direction": "row",
+        "content_direction": "column",
         "vertical_on_mobile": false,
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "flex-end",
