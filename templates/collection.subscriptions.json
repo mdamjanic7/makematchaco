@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h4>Memberships</h4>",
+            "text": "<h4>Subscriptions</h4>",
             "width": "100%",
             "max_width": "none",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Receive your favorite matcha monthly, along with member pricing, complimentary shipping, and exclusive benefits.</p>",
+            "text": "<p>Subscriptions include exclusive member pricing, complimentary shipping, your matcha delivered monthly for ease, and other exclusive benefits.</p>",
             "width": "100%",
             "max_width": "none",
             "alignment": "left",
