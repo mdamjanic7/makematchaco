@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<h2>About Make</h2>",
+            "text": "<h2>About MAKE</h2>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -125,7 +125,7 @@
           "static": true,
           "settings": {
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "flex-start",
             "gap": 0
           },
           "blocks": {
