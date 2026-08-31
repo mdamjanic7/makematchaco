@@ -9,6 +9,17 @@
  */
 {
   "sections": {
+    "custom_liquid_AkfTmA": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "{% if page.id == 156473557277 %}{{ page.content }}{% endif %}",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -166,7 +177,6 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/20240201_DBaum_MakeMatcha_0043_1.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -1073,7 +1083,6 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/Hojicha_Premium_matcha_tea_refill_image_2_49afdeee-6666-4403-a940-4045cecfb74f.jpg",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -1424,7 +1433,6 @@
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
         "media_type_1_mobile": "image",
-        "image_1_mobile": "shopify://shop_images/Mobile_Second_Make_Matcha_Premium_Homepage.jpg",
         "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -1452,6 +1460,7 @@
     }
   },
   "order": [
+    "custom_liquid_AkfTmA",
     "main",
     "media_with_content_adiWcb",
     "hero_9bm4n9",
