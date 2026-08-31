@@ -138,7 +138,7 @@
                 "vertical_alignment": "center",
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "flex-start",
                 "gap": 12,
                 "width": "fill",
                 "custom_width": 100,
@@ -197,7 +197,7 @@
                 "text_iBeMCF": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>KE began with a simple realization. The highest grades of Japanese matcha have traditionally been prepared at home and in tea houses. Produced in limited quantities by small Japanese farms, these teas are prized for their flavor, craftsmanship, and the quiet ritual of preparing matcha by hand.</p><p>By contrast, most cafés rely on matcha selected for affordability, consistency, and availability—ideal for lattes, desserts, soft serve, and baking. MAKE exists to bring the former into more homes. Of course, what you do with it from there is entirely up to you.</p>",
+                    "text": "<p>We began with a simple realization. The highest grades of Japanese matcha have traditionally been prepared at home and in tea houses. Produced in limited quantities by small Japanese farms, these teas are prized for their flavor, craftsmanship, and the quiet ritual of preparing matcha by hand.</p><p>By contrast, most cafés rely on matcha selected for affordability, consistency, and availability—ideal for lattes, desserts, soft serve, and baking. MAKE exists to bring the former into more homes. Of course, what you do with it from there is entirely up to you.</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
