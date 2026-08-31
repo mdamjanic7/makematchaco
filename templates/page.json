@@ -9,193 +9,6 @@
  */
 {
   "sections": {
-    "section_Urgxgq": {
-      "type": "section",
-      "blocks": {
-        "text_xF3nKf": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<h2>About MAKE</h2>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h3",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "text_HFaBad": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<p>We're on a mission to bring exceptional Japanese matcha into more homes. Not the kind selected for busy cafés. The kind traditionally farmed in small batches and meant to be prepared and enjoyed at home—or wherever feels like home. </p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_xF3nKf",
-        "text_HFaBad"
-      ],
-      "name": "t:names.rich_text_section",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 22,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-7",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
-    "hero_hwDnNC": {
-      "type": "hero",
-      "name": "t:names.hero",
-      "settings": {
-        "media_type_1": "image",
-        "image_1": "shopify://shop_images/MAKE_Matcha_Co_Imperial_Grade_Matcha_in_bowl.jpg",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": true,
-        "media_type_1_mobile": "image",
-        "image_1_mobile": "shopify://shop_images/MAKE_Matcha_Co_Imperial_Grade_Matcha_in_bowl.jpg",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "page-width",
-        "section_height": "large",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-5",
-        "toggle_overlay": true,
-        "overlay_color": "#00000026",
-        "overlay_style": "gradient",
-        "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 40,
-        "padding-block-end": 40
-      }
-    },
-    "section_K6Bk7j": {
-      "type": "section",
-      "blocks": {
-        "text_PBXKCj": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<p>MAKE Better Matcha at Home</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_PBXKCj"
-      ],
-      "name": "t:names.rich_text_section",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 25,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-5",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -277,7 +90,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>Why We Started</p>",
+                    "text": "<h2>Matcha Maker in Residence</h2>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -302,7 +115,7 @@
                 "text_iBeMCF": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>MAKE began with a simple realization.</p><p>The highest grades of Japanese matcha have traditionally been prepared at home and in tea houses. Produced in limited quantities by small Japanese farms, these teas are prized for their flavor, craftsmanship, and the quiet ritual of preparing matcha by hand. </p><p>By contrast, most cafés rely on matcha selected for affordability, consistency, and availability—ideal for lattes, desserts, soft serve, and baking. </p><p>MAKE exists to bring the former into more homes. Of course, what you do with it from there is entirely up to you.</p>",
+                    "text": "<p>MAKE was created to bring home the kind of Japanese matcha traditionally prepared in tea ceremonies and tea houses. Produced in limited quantities, tea of this quality is not made for broad café distribution.<br/><br/>Matcha Maker in Residence is the exception.<br/><br/>For a season, we work with a hotel we admire to bring MAKE to its menu. Before the first cup is served, we train the team in how to prepare and serve it properly.</p><p>From there, each residency takes its own shape. There may be signature drinks, events or special activations tied to the setting. Or it may be as simple as finding a truly great matcha on the menu.</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -918,9 +731,6 @@
     }
   },
   "order": [
-    "section_Urgxgq",
-    "hero_hwDnNC",
-    "section_K6Bk7j",
     "main",
     "media_with_content_adiWcb",
     "media_with_content_jCmFgX",
