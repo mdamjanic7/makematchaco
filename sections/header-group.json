@@ -18,7 +18,7 @@
           "type": "_announcement",
           "name": "t:names.announcement",
           "settings": {
-            "text": "🎾 It's Tennis Season! Free Iconic Wilson hat with all US purchase*",
+            "text": "🎾 It's Tennis Season! Free Iconic Wilson hat with all US purchases*",
             "link": "",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
