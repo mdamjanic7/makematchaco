@@ -9,13 +9,84 @@
  */
 {
   "sections": {
-    "custom_liquid_AkfTmA": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
+    "17882171953409705e": {
+      "type": "_blocks",
+      "blocks": {
+        "text_RXATRL": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<h2>About Make</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_89bb971_kpBXJD": {
+          "type": "ai_gen_block_89bb971",
+          "settings": {
+            "text": "<p>We're on a mission to bring exceptional Japanese matcha into more homes. Not the kind selected for busy cafés. The kind traditionally farmed in small batches and meant to be prepared and enjoyed at home—or wherever feels like home.</p>",
+            "text_alignment": "center",
+            "desktop_width_percent": 100,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20,
+            "padding_horizontal_mobile": 20,
+            "background_color": "#ffffff",
+            "text_color": "#000000",
+            "heading_color": "#000000",
+            "link_color": "#6b7fff",
+            "link_hover_color": "#000000"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_RXATRL",
+        "ai_gen_block_89bb971_kpBXJD"
+      ],
       "settings": {
-        "custom_liquid": "{% if page.id == 156473557277 %}{{ page.content }}{% endif %}",
-        "color_scheme": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
         "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -101,7 +172,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h3>MAKE’s journey begins well before your whisk touches the tea.</h3>",
+                    "text": "<h3>Why We Started MAKE</h3>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -126,7 +197,7 @@
                 "text_iBeMCF": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Every season we work directly with local farmers to select the best matcha leaves that meet our high standard and commitment to traditional Japanese farming and processing methods.<br/><br/>At MAKE we are always searching for distinctions like vibrant green color, fine texture, rich aroma, and, most importantly, delicious umami flavor.</p>",
+                    "text": "<p>KE began with a simple realization. The highest grades of Japanese matcha have traditionally been prepared at home and in tea houses. Produced in limited quantities by small Japanese farms, these teas are prized for their flavor, craftsmanship, and the quiet ritual of preparing matcha by hand.</p><p>By contrast, most cafés rely on matcha selected for affordability, consistency, and availability—ideal for lattes, desserts, soft serve, and baking. MAKE exists to bring the former into more homes. Of course, what you do with it from there is entirely up to you.</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -170,40 +241,6 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 0,
         "padding-block-end": 0
-      }
-    },
-    "hero_9bm4n9": {
-      "type": "hero",
-      "name": "t:names.hero",
-      "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "page-width",
-        "section_height": "large",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-5",
-        "toggle_overlay": true,
-        "overlay_color": "#00000026",
-        "overlay_style": "gradient",
-        "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 40,
-        "padding-block-end": 40
       }
     },
     "media_with_content_jCmFgX": {
@@ -275,7 +312,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h3>Introducing Heritage Grade</h3>",
+                    "text": "<h3>Why We Started MAKE</h3>",
                     "width": "fit-content",
                     "max_width": "narrow",
                     "alignment": "left",
@@ -301,7 +338,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>This is MAKE’s signature grade matcha.<br/><br/>Cultivated with extraordinary care using time-honored techniques that far exceed the standards of conventional matcha.</p><p>We collaborate with one of Japan’s most respected tea masters to produce this grade in limited quantities, then share it selectively with our community.<br/><br/>Interested in understanding the differences between our grades? Read on.</p>",
+                    "text": "<h4>Our Commitment</h4><p>For nearly a decade, MAKE has worked alongside a Level 10 Tea Master in Kyoto.</p><p>Exceptional tea isn't simply bought. It's entrusted through relationships built over decades.Those relationships, built patiently over many years, have opened doors to teas that are rarely available outside Japan. Every tea is hand-selected from respected producers who share a commitment to traditional farming, meticulous production, and exceptional quality.</p><p>Everything we do is guided by three philosophies.</p><h4>The Art of Making Matcha</h4><p>We believe making matcha is just as meaningful as drinking it.</p><p>Preparing a bowl by hand invites you to slow down, if only for a few minutes. Measuring the tea, warming the bowl, whisking until perfectly smooth—each step becomes part of the experience.</p><p>It's a simple daily ritual that has a way of bringing greater intention to the moments that follow.</p><h4>Rooted in Traditions</h4><p>Working alongside our Level 10 Tea Master in Kyoto, we carefully select teas that reflect the highest standards of Japanese craftsmanship. From cultivation and harvest to stone milling and packaging, every decision is guided by flavor, quality, and tradition.</p><p>Rather than pursuing scale, we focus on preserving the character and integrity of every harvest.</p><h4>Accessibility</h4><p>Tea of this quality has traditionally been difficult to experience outside Japan. Our goal is to change that.</p><p>By working directly with our partners and keeping our margins thoughtful, we're able to bring exceptional Japanese matcha into more homes without compromising on quality.</p><p>Our goal isn't simply to sell matcha. It's to help preserve the craftsmanship behind it for generations to come.</p>",
                     "width": "fit-content",
                     "max_width": "narrow",
                     "alignment": "left",
@@ -1460,10 +1497,9 @@
     }
   },
   "order": [
-    "custom_liquid_AkfTmA",
+    "17882171953409705e",
     "main",
     "media_with_content_adiWcb",
-    "hero_9bm4n9",
     "media_with_content_jCmFgX",
     "section_K6Bk7j",
     "divider_gihrFj",
