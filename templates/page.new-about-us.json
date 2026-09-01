@@ -489,7 +489,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>MAKE better matcha at home.</p>",
+            "text": "<p>MAKE Better Matcha at Home.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
