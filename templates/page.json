@@ -167,8 +167,8 @@
       "name": "t:names.editorial",
       "settings": {
         "media_position": "right",
-        "media_width": "wide",
-        "media_height": "100svh",
+        "media_width": "medium",
+        "media_height": "80svh",
         "section_width": "full-width",
         "extend_media": true,
         "color_scheme": "scheme-1",
@@ -271,7 +271,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>MARRAM, MONTAUK</p><p><strong>Summer 2026<br/></strong>MARRAM - MONTAUK, NY</p><p>For summer 2026, MAKE took up residence at Marram Montauk.</p><p>Set directly on the ocean, Marram’s thoughtful hospitality and easy pace made it a natural fit for the program.</p><p>Throughout the season, guests could find MAKE at Mostrador, Marram’s café and restaurant—before the beach, after a swim or over a long afternoon by the water.</p><p><strong>Coming up next:</strong></p><p>UPSTATE NEW YORK</p><p><strong>Coming soon:</strong></p><p>WHISTLER, CANADA</p><p></p><p></p>",
+                    "text": "<p>MARRAM, MONTAUK</p><p><strong>Summer 2026<br/></strong>MARRAM MONTAUK, NY</p><p>For summer 2026, MAKE took up residence at Marram Montauk.</p><p>Set directly on the ocean, Marram’s thoughtful hospitality and easy pace made it a natural fit for the program.</p><p>Throughout the season, guests could find MAKE at Mostrador, Marram’s café and restaurant—before the beach, after a swim or over a long afternoon by the water.</p><p><strong>Coming up next:</strong></p><p>UPSTATE NEW YORK</p><p><strong>Coming soon:</strong></p><p>WHISTLER, CANADA</p><p></p><p></p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
