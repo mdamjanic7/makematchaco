@@ -33,7 +33,7 @@
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
-            "image_position": "contain",
+            "image_position": "cover",
             "video_position": "cover"
           },
           "blocks": {}
@@ -167,8 +167,8 @@
       "name": "t:names.editorial",
       "settings": {
         "media_position": "right",
-        "media_width": "medium",
-        "media_height": "80svh",
+        "media_width": "wide",
+        "media_height": "100svh",
         "section_width": "full-width",
         "extend_media": true,
         "color_scheme": "scheme-1",
