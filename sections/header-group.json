@@ -80,7 +80,7 @@
           "settings": {
             "menu": "new-mobile-menu",
             "color_scheme": "scheme-2",
-            "type_font_primary_size": "0.625rem",
+            "type_font_primary_size": "0.75rem",
             "menu_font_style": "inverse",
             "type_font_primary_link": "subheading",
             "type_case_primary_link": "none",
