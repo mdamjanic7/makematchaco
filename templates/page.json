@@ -271,7 +271,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p><strong>Fall 2026<br/></strong>WYLDER, WINDHAM NY<br/><br/>With the Catskills as its backdrop, Wylder Windham is the setting for MAKE’s fall residency, a season shaped by crisp air, colorful foliage and the slower pace of mountain life.&nbsp;<br/><br/><strong>Summer 2026<br/></strong>MARRAM MONTAUK, NY</p><p>Set directly on the ocean, Marram’s thoughtful hospitality and easy pace made it a natural fit for the program. Throughout the season, guests could find MAKE at Mostrador, Marram’s café and restaurant—before the beach, after a swim or over a long afternoon by the water.</p><p><strong>Coming up next:</strong></p><p>WHISTLER, CANADA</p><p></p><p></p>",
+                    "text": "<p><strong>Fall 2026<br/></strong>WYLDER, WINDHAM NY<br/><br/>With the Catskills as its backdrop, Wylder Windham is the setting for MAKE’s fall residency, a season shaped by crisp air, colorful foliage and the slower pace of mountain life.&nbsp;<br/><br/><strong>Summer 2026<br/></strong>MARRAM MONTAUK, NY</p><p>Set directly on the ocean, Marram’s thoughtful hospitality and easy pace made it a natural fit for the program. Throughout the season, guests could find MAKE at Mostrador, Marram’s café and restaurant—before the beach, after a swim or over a long afternoon by the water.</p><p><strong>Coming up next:<br/></strong>WHISTLER, CANADA</p><p></p><p></p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
